@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_basic_client_quotes",
+  "info": {
+    "displayName": "Client Quote",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "client_name": {
+      "type": "string",
+      "required": true
+    },
+    "client_quote": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

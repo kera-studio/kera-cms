@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "faq_workshops",
+  "info": {
+    "singularName": "faq-workshop",
+    "pluralName": "faq-workshops",
+    "displayName": "Faq workshop",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "basic.faq-item",
+      "required": true
+    }
+  }
+}

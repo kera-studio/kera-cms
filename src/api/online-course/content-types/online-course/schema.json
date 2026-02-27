@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "online_courses",
+  "info": {
+    "singularName": "online-course",
+    "pluralName": "online-courses",
+    "displayName": "Online course"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "shopify_id": {
+      "type": "string",
+      "unique": true
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "course_ownerships": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course-ownership.course-ownership",
+      "mappedBy": "online_course"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "faq_products",
+  "info": {
+    "singularName": "faq-product",
+    "pluralName": "faq-products",
+    "displayName": "Faq product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "basic.faq-item",
+      "required": true
+    }
+  }
+}

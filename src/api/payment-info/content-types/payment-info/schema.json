@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payment_infos",
+  "info": {
+    "singularName": "payment-info",
+    "pluralName": "payment-infos",
+    "displayName": "Payment info",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order_number": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "user_email": {
+      "type": "string",
+      "required": true
+    },
+    "branch": {
+      "type": "enumeration",
+      "enum": [
+        "BRNO",
+        "PRAHA"
+      ],
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "payload": {
+      "type": "json"
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "IN_PROGRESS",
+        "FAILED",
+        "DONE"
+      ],
+      "required": true,
+      "default": "IN_PROGRESS"
+    }
+  }
+}

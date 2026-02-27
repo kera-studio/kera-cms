@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_ownerships",
+  "info": {
+    "singularName": "course-ownership",
+    "pluralName": "course-ownerships",
+    "displayName": "Course ownership ☠️",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "course_ownerships"
+    },
+    "online_course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::online-course.online-course",
+      "inversedBy": "course_ownerships"
+    }
+  }
+}

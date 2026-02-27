@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "faq_online_courses",
+  "info": {
+    "singularName": "faq-online-course",
+    "pluralName": "faq-online-courses",
+    "displayName": "Faq online course"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "basic.faq-item",
+      "required": true
+    }
+  }
+}

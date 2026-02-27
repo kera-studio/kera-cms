@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auth_tokens",
+  "info": {
+    "singularName": "auth-token",
+    "pluralName": "auth-tokens",
+    "displayName": "Auth token"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "entity_id": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "user-activation",
+        "forgot-password"
+      ],
+      "required": true
+    },
+    "token": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

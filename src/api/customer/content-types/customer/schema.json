@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "singularName": "customer",
+    "pluralName": "customers",
+    "displayName": "Customer ☠️",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "import-export-entries": {
+      "idField": "user_key"
+    }
+  },
+  "attributes": {
+    "user_key": {
+      "type": "string",
+      "unique": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "course_ownerships": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course-ownership.course-ownership",
+      "mappedBy": "customer"
+    },
+    "branch": {
+      "type": "enumeration",
+      "enum": [
+        "BRNO",
+        "PRAHA"
+      ],
+      "required": true
+    }
+  }
+}

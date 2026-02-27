@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_basic_faq_items",
+  "info": {
+    "displayName": "Faq Item",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "faq_question": {
+      "type": "string",
+      "required": true
+    },
+    "faq_answer": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_basic_tables",
+  "info": {
+    "displayName": "Table",
+    "icon": "grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "row_header": {
+      "type": "string",
+      "required": true
+    },
+    "row_value": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

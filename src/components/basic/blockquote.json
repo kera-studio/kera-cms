@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_basic_blockquotes",
+  "info": {
+    "displayName": "Blockquote",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "blockquote_content": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

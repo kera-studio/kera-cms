@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_redeem_codes",
+  "info": {
+    "singularName": "course-redeem-code",
+    "pluralName": "course-redeem-codes",
+    "displayName": "Course redeem code 🧐",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "customField",
+      "customField": "plugin::strapi-advanced-uuid.uuid"
+    },
+    "online_course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::online-course.online-course"
+    }
+  }
+}
