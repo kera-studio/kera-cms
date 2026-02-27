@@ -17,6 +17,7 @@
     "transfer:push": "source .env && pnpm strapi transfer --to $REMOTE_URL --to-token $TRANSFER_TOKEN"
   },
   "dependencies": {
+    "@avorati/strapi-provider-upload-minio": "^1.7.1",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@strapi/design-system": "^2.2.0",
     "@strapi/plugin-cloud": "5.37.1",
