@@ -17,6 +17,8 @@
     "transfer:push": "source .env && pnpm strapi transfer --to $REMOTE_URL --to-token $TRANSFER_TOKEN"
   },
   "dependencies": {
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@strapi/design-system": "^2.2.0",
     "@strapi/plugin-cloud": "5.37.1",
     "@strapi/plugin-users-permissions": "5.37.1",
     "@strapi/strapi": "5.37.1",
