@@ -1,31 +1,31 @@
-import type { Core } from '@strapi/strapi';
+import type { Core } from "@strapi/strapi";
 
 const config = ({
   env,
 }: Core.Config.Shared.ConfigParams): Core.Config.Middlewares => {
-  const minioHost = env('MINIO_HOST') || env('MINIO_ENDPOINT');
+  const minioHost = env("MINIO_HOST");
 
   return [
-    'strapi::logger',
-    'strapi::errors',
+    "strapi::logger",
+    "strapi::errors",
     {
-      name: 'strapi::security',
+      name: "strapi::security",
       config: {
         contentSecurityPolicy: {
           useDefaults: true,
           directives: {
-            'connect-src': ["'self'", 'https:'],
-            'img-src': [
+            "connect-src": ["'self'", "https:"],
+            "img-src": [
               "'self'",
-              'data:',
-              'blob:',
-              'market-assets.strapi.io',
+              "data:",
+              "blob:",
+              "market-assets.strapi.io",
               ...(minioHost ? [`https://${minioHost}`] : []),
             ],
-            'media-src': [
+            "media-src": [
               "'self'",
-              'data:',
-              'blob:',
+              "data:",
+              "blob:",
               ...(minioHost ? [`https://${minioHost}`] : []),
             ],
             upgradeInsecureRequests: null,
@@ -33,13 +33,13 @@ const config = ({
         },
       },
     },
-    'strapi::cors',
-    'strapi::poweredBy',
-    'strapi::query',
-    'strapi::body',
-    'strapi::session',
-    'strapi::favicon',
-    'strapi::public',
+    "strapi::cors",
+    "strapi::poweredBy",
+    "strapi::query",
+    "strapi::body",
+    "strapi::session",
+    "strapi::favicon",
+    "strapi::public",
   ];
 };
 
