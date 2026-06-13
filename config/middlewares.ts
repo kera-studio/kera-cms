@@ -28,6 +28,13 @@ const config = ({
               "blob:",
               ...(minioHost ? [`https://${minioHost}`] : []),
             ],
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "cdn.jsdelivr.net",
+              "strapi.io",
+            ],
+            "style-src": ["'self'", "'unsafe-inline'", "cdn.jsdelivr.net"],
             upgradeInsecureRequests: null,
           },
         },
