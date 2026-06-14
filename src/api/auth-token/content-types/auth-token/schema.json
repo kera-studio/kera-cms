@@ -4,7 +4,7 @@
   "info": {
     "singularName": "auth-token",
     "pluralName": "auth-tokens",
-    "displayName": "Read only – Auth token"
+    "displayName": "z_Read only – Auth token"
   },
   "options": {
     "draftAndPublish": false

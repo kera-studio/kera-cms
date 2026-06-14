@@ -4,7 +4,7 @@
   "info": {
     "singularName": "payment-info",
     "pluralName": "payment-infos",
-    "displayName": "Read only – Payment info",
+    "displayName": "z_Read only – Payment info",
     "description": ""
   },
   "options": {

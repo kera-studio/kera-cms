@@ -4,7 +4,7 @@
   "info": {
     "singularName": "customer",
     "pluralName": "customers",
-    "displayName": "Read only – Customer",
+    "displayName": "z_Read only – Customer",
     "description": ""
   },
   "options": {

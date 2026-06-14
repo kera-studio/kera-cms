@@ -4,7 +4,7 @@
   "info": {
     "singularName": "course-ownership",
     "pluralName": "course-ownerships",
-    "displayName": "Read only – Course ownership",
+    "displayName": "z_Read only – Course ownership",
     "description": ""
   },
   "options": {
