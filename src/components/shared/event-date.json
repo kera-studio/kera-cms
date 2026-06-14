@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_event_dates",
+  "info": {
+    "displayName": "Event Date",
+    "icon": "calendar",
+    "description": "A single scheduled date/time, optionally labelled."
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "datetime",
+      "required": true
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

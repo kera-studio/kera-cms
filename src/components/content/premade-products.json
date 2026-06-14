@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_premade_products",
+  "info": {
+    "displayName": "Premade Products",
+    "icon": "store",
+    "description": "A content block listing one or more premade products."
+  },
+  "options": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::premade-product.premade-product"
+    }
+  }
+}

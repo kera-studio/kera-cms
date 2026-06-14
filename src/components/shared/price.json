@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_prices",
+  "info": {
+    "displayName": "Price",
+    "icon": "shoppingCart",
+    "description": "Monetary amount. Note: amounts are stored in CZK."
+  },
+  "options": {},
+  "attributes": {
+    "prefix": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "currency": {
+      "type": "string",
+      "required": true,
+      "default": "CZK"
+    },
+    "withVat": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "suffix": {
+      "type": "string"
+    }
+  }
+}

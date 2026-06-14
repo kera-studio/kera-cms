@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_media_rows",
+  "info": {
+    "displayName": "Media Row",
+    "icon": "landscape",
+    "description": "A row of 1-2 media items; images and videos can be mixed."
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.media-item",
+      "required": true,
+      "min": 1,
+      "max": 2
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_table_rows",
+  "info": {
+    "displayName": "Table Row",
+    "icon": "bulletList",
+    "description": "A header/body pair with an optional note."
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "required": true
+    },
+    "note": {
+      "type": "text"
+    }
+  }
+}

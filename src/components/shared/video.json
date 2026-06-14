@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_videos",
+  "info": {
+    "displayName": "Video",
+    "icon": "play",
+    "description": "External video reference (e.g. YouTube video ID)."
+  },
+  "options": {},
+  "attributes": {
+    "videoId": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "collectionName": "components_activity_bases",
+  "info": {
+    "displayName": "Activity Base",
+    "icon": "apps",
+    "description": "Shared fields for all activity types (group, workshop, self-service)."
+  },
+  "options": {},
+  "attributes": {
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "table": {
+      "type": "component",
+      "component": "shared.table-row",
+      "repeatable": true
+    },
+    "price": {
+      "type": "component",
+      "component": "shared.price",
+      "repeatable": false,
+      "required": true
+    },
+    "additionalInfo": {
+      "type": "component",
+      "component": "shared.list-item",
+      "repeatable": true
+    },
+    "membership": {
+      "type": "enumeration",
+      "required": true,
+      "default": "none",
+      "enum": [
+        "none",
+        "by-depozit",
+        "by-reservation"
+      ]
+    },
+    "usps": {
+      "type": "component",
+      "component": "shared.usp",
+      "repeatable": true
+    },
+    "quote": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client-quote.client-quote"
+    },
+    "gallery": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gallery.gallery"
+    }
+  }
+}

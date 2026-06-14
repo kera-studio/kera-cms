@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_richtexts",
+  "info": {
+    "displayName": "Rich Text",
+    "icon": "bold",
+    "description": "Rich text block. Intended for h1-h3, ul, ol and p only."
+  },
+  "options": {},
+  "attributes": {
+    "body": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}
