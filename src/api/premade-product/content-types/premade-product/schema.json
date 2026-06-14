@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "premade_products",
+  "info": {
+    "singularName": "premade-product",
+    "pluralName": "premade-products",
+    "displayName": "Products – In Stock",
+    "description": "In-stock product instance for a specific studio location."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "internalDisplayName": {
+      "type": "string"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "premadeProducts"
+    },
+    "price": {
+      "type": "component",
+      "component": "shared.price",
+      "repeatable": false,
+      "required": true
+    },
+    "stockCount": {
+      "type": "integer",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "location": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "brno-stankova",
+        "brno-kera-mini",
+        "praha-veletrzni"
+      ]
+    }
+  }
+}

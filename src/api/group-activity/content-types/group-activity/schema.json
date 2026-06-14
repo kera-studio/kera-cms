@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "group_activities",
+  "info": {
+    "singularName": "group-activity",
+    "pluralName": "group-activities",
+    "displayName": "Activity – Group",
+    "description": "An activity made up of multiple group lessons."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "internalDisplayName": {
+      "type": "string",
+      "description": "Auto-generated from the title.",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "base": {
+      "type": "component",
+      "repeatable": false,
+      "component": "activity.base",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.richtext",
+        "content.media-row",
+        "content.premade-products"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "groupActivityLessons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::group-activity-lesson.group-activity-lesson",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    }
+  }
+}

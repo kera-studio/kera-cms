@@ -575,7 +575,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
 export interface ApiAuthTokenAuthToken extends Struct.CollectionTypeSchema {
   collectionName: 'auth_tokens';
   info: {
-    displayName: 'Read only \u2013 Auth token';
+    displayName: 'z_Read only \u2013 Auth token';
     pluralName: 'auth-tokens';
     singularName: 'auth-token';
   };
@@ -607,7 +607,7 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
   collectionName: 'case_studies';
   info: {
     description: '';
-    displayName: 'Deprecated \u2013 Case Study';
+    displayName: 'z_Deprecated \u2013 Case Study';
     pluralName: 'case-studies';
     singularName: 'case-study';
   };
@@ -691,12 +691,58 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiClientQuoteClientQuote extends Struct.CollectionTypeSchema {
+  collectionName: 'client_quotes';
+  info: {
+    description: 'A testimonial quote attributed to a client.';
+    displayName: 'Content \u2013 Client Quote';
+    pluralName: 'client-quotes';
+    singularName: 'client-quote';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::client-quote.client-quote'
+    >;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    quote: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCourseOwnershipCourseOwnership
   extends Struct.CollectionTypeSchema {
   collectionName: 'course_ownerships';
   info: {
     description: '';
-    displayName: 'Read only \u2013 Course ownership';
+    displayName: 'z_Read only \u2013 Course ownership';
     pluralName: 'course-ownerships';
     singularName: 'course-ownership';
   };
@@ -730,7 +776,7 @@ export interface ApiCourseRedeemCodeCourseRedeemCode
   collectionName: 'course_redeem_codes';
   info: {
     description: '';
-    displayName: 'Read only \u2013 Course redeem code';
+    displayName: 'z_Read only \u2013 Course redeem code';
     pluralName: 'course-redeem-codes';
     singularName: 'course-redeem-code';
   };
@@ -764,7 +810,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
   collectionName: 'courses';
   info: {
     description: '';
-    displayName: 'Deprecated \u2013 Course';
+    displayName: 'z_Deprecated \u2013 Course';
     pluralName: 'courses';
     singularName: 'course';
   };
@@ -850,7 +896,7 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
   collectionName: 'customers';
   info: {
     description: '';
-    displayName: 'Read only \u2013 Customer';
+    displayName: 'z_Read only \u2013 Customer';
     pluralName: 'customers';
     singularName: 'customer';
   };
@@ -1004,6 +1050,197 @@ export interface ApiFaqWorkshopFaqWorkshop extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
+  collectionName: 'galleries';
+  info: {
+    description: 'A reusable set of images, referenced by activities.';
+    displayName: 'Content \u2013 Gallery';
+    pluralName: 'galleries';
+    singularName: 'gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: false;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    internalDisplayName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::gallery.gallery'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGroupActivityLessonGroupActivityLesson
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'group_activity_lessons';
+  info: {
+    description: 'A single lesson belonging to a group activity.';
+    displayName: 'Activity \u2013 Group Lesson';
+    pluralName: 'group-activity-lessons';
+    singularName: 'group-activity-lesson';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    coverPhoto: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    details: Schema.Attribute.Component<'shared.table-row', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    internalDisplayName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::group-activity-lesson.group-activity-lesson'
+    >;
+    price: Schema.Attribute.Component<'shared.price', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGroupActivityGroupActivity
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'group_activities';
+  info: {
+    description: 'An activity made up of multiple group lessons.';
+    displayName: 'Activity \u2013 Group';
+    pluralName: 'group-activities';
+    singularName: 'group-activity';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    base: Schema.Attribute.Component<'activity.base', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Schema.Attribute.DynamicZone<
+      ['content.richtext', 'content.media-row', 'content.premade-products']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    groupActivityLessons: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::group-activity-lesson.group-activity-lesson'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    internalDisplayName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::group-activity.group-activity'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNotificationNotification
   extends Struct.CollectionTypeSchema {
   collectionName: 'notifications';
@@ -1090,7 +1327,7 @@ export interface ApiPaymentInfoPaymentInfo extends Struct.CollectionTypeSchema {
   collectionName: 'payment_infos';
   info: {
     description: '';
-    displayName: 'Read only \u2013 Payment info';
+    displayName: 'z_Read only \u2013 Payment info';
     pluralName: 'payment-infos';
     singularName: 'payment-info';
   };
@@ -1129,7 +1366,7 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
   collectionName: 'places';
   info: {
     description: '';
-    displayName: 'Deprecated \u2013 Place';
+    displayName: 'z_Deprecated \u2013 Place';
     pluralName: 'places';
     singularName: 'place';
   };
@@ -1243,11 +1480,201 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPremadeProductPremadeProduct
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'premade_products';
+  info: {
+    description: 'In-stock product instance for a specific studio location.';
+    displayName: 'Products \u2013 In Stock';
+    pluralName: 'premade-products';
+    singularName: 'premade-product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    internalDisplayName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::premade-product.premade-product'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.Enumeration<
+      ['brno-stankova', 'brno-kera-mini', 'praha-veletrzni']
+    > &
+      Schema.Attribute.Required;
+    price: Schema.Attribute.Component<'shared.price', false> &
+      Schema.Attribute.Required;
+    product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    stockCount: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Struct.CollectionTypeSchema {
+  collectionName: 'products';
+  info: {
+    description: 'A sellable product, reused across premade products.';
+    displayName: 'Products';
+    pluralName: 'products';
+    singularName: 'product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    coverPhoto: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product.product'
+    >;
+    premadeProducts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::premade-product.premade-product'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSelfserviceActivitySelfserviceActivity
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'selfservice_activities';
+  info: {
+    description: 'A self-service activity, optionally backed by premade products.';
+    displayName: 'Activity \u2013 Self-service';
+    pluralName: 'selfservice-activities';
+    singularName: 'selfservice-activity';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    base: Schema.Attribute.Component<'activity.base', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Schema.Attribute.DynamicZone<
+      ['content.richtext', 'content.media-row', 'content.premade-products']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    internalDisplayName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::selfservice-activity.selfservice-activity'
+    >;
+    location: Schema.Attribute.Enumeration<
+      ['brno-stankova', 'brno-kera-mini', 'praha-veletrzni']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    withPremadeProducts: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
   collectionName: 'team_members';
   info: {
     description: '';
-    displayName: 'Deprecated \u2013 Team member';
+    displayName: 'z_Deprecated \u2013 Team member';
     pluralName: 'team-members';
     singularName: 'team-member';
   };
@@ -1346,11 +1773,93 @@ export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiWorkshopActivityWorkshopActivity
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'workshop_activities';
+  info: {
+    description: 'A workshop activity scheduled on one or more dates.';
+    displayName: 'Activity \u2013 Workshop';
+    pluralName: 'workshop-activities';
+    singularName: 'workshop-activity';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    base: Schema.Attribute.Component<'activity.base', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Schema.Attribute.DynamicZone<
+      ['content.richtext', 'content.media-row', 'content.premade-products']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dates: Schema.Attribute.Component<'shared.event-date', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    internalDisplayName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::workshop-activity.workshop-activity'
+    >;
+    location: Schema.Attribute.Enumeration<
+      ['brno-stankova', 'brno-kera-mini', 'praha-veletrzni']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
   collectionName: 'workshops';
   info: {
     description: '';
-    displayName: 'Deprecated \u2013 Workshop';
+    displayName: 'z_Deprecated \u2013 Workshop';
     pluralName: 'workshops';
     singularName: 'workshop';
   };
@@ -1948,6 +2457,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::auth-token.auth-token': ApiAuthTokenAuthToken;
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
+      'api::client-quote.client-quote': ApiClientQuoteClientQuote;
       'api::course-ownership.course-ownership': ApiCourseOwnershipCourseOwnership;
       'api::course-redeem-code.course-redeem-code': ApiCourseRedeemCodeCourseRedeemCode;
       'api::course.course': ApiCourseCourse;
@@ -1955,11 +2465,18 @@ declare module '@strapi/strapi' {
       'api::faq-online-course.faq-online-course': ApiFaqOnlineCourseFaqOnlineCourse;
       'api::faq-product.faq-product': ApiFaqProductFaqProduct;
       'api::faq-workshop.faq-workshop': ApiFaqWorkshopFaqWorkshop;
+      'api::gallery.gallery': ApiGalleryGallery;
+      'api::group-activity-lesson.group-activity-lesson': ApiGroupActivityLessonGroupActivityLesson;
+      'api::group-activity.group-activity': ApiGroupActivityGroupActivity;
       'api::notification.notification': ApiNotificationNotification;
       'api::online-course.online-course': ApiOnlineCourseOnlineCourse;
       'api::payment-info.payment-info': ApiPaymentInfoPaymentInfo;
       'api::place.place': ApiPlacePlace;
+      'api::premade-product.premade-product': ApiPremadeProductPremadeProduct;
+      'api::product.product': ApiProductProduct;
+      'api::selfservice-activity.selfservice-activity': ApiSelfserviceActivitySelfserviceActivity;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
+      'api::workshop-activity.workshop-activity': ApiWorkshopActivityWorkshopActivity;
       'api::workshop.workshop': ApiWorkshopWorkshop;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

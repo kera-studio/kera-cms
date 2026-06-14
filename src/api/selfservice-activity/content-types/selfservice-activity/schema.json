@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "selfservice_activities",
+  "info": {
+    "singularName": "selfservice-activity",
+    "pluralName": "selfservice-activities",
+    "displayName": "Activity – Self-service",
+    "description": "A self-service activity, optionally backed by premade products."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "internalDisplayName": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "targetField": "title"
+    },
+    "base": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "activity.base",
+      "repeatable": false,
+      "required": true
+    },
+    "content": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "content.richtext",
+        "content.media-row",
+        "content.premade-products"
+      ]
+    },
+    "withPremadeProducts": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "default": false
+    },
+    "location": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "enum": [
+        "brno-stankova",
+        "brno-kera-mini",
+        "praha-veletrzni"
+      ]
+    }
+  }
+}
