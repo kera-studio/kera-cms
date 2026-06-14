@@ -4,7 +4,7 @@
   "info": {
     "singularName": "team-member",
     "pluralName": "team-members",
-    "displayName": "Team member",
+    "displayName": "Deprecated – Team member",
     "description": ""
   },
   "options": {
@@ -17,71 +17,71 @@
   },
   "attributes": {
     "team_member_name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     },
     "team_member_position": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     },
     "team_member_phone": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     },
     "team_member_email": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     },
     "team_member_show_on_about_page": {
+      "type": "boolean",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "boolean",
-      "default": false,
-      "required": true
+      "required": true,
+      "default": false
     },
     "team_member_photo": {
       "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "team_member_slug": {
+      "type": "uid",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "uid",
       "targetField": "team_member_name",
       "required": true
     },
@@ -92,28 +92,28 @@
       "mappedBy": "article_author"
     },
     "team_member_priority_on_about_page": {
+      "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "integer",
       "default": 1
     },
     "team_member_place": {
+      "type": "enumeration",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "enumeration",
+      "default": "none",
       "enum": [
         "store",
         "brno",
         "praha",
         "none"
-      ],
-      "default": "none"
+      ]
     },
     "places": {
       "type": "relation",

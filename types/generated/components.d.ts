@@ -3,7 +3,7 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface BasicBlockquote extends Struct.ComponentSchema {
   collectionName: 'components_basic_blockquotes';
   info: {
-    displayName: 'Blockquote';
+    displayName: 'Deprecated \u2013 Blockquote';
     icon: 'envelop';
   };
   attributes: {
@@ -14,7 +14,7 @@ export interface BasicBlockquote extends Struct.ComponentSchema {
 export interface BasicClientQuote extends Struct.ComponentSchema {
   collectionName: 'components_basic_client_quotes';
   info: {
-    displayName: 'Client Quote';
+    displayName: 'Deprecated \u2013 Client Quote';
     icon: 'feather';
   };
   attributes: {
@@ -26,7 +26,7 @@ export interface BasicClientQuote extends Struct.ComponentSchema {
 export interface BasicFaqItem extends Struct.ComponentSchema {
   collectionName: 'components_basic_faq_items';
   info: {
-    displayName: 'Faq Item';
+    displayName: 'Deprecated \u2013 Faq Item';
     icon: 'earth';
   };
   attributes: {
@@ -39,7 +39,7 @@ export interface BasicImageRow extends Struct.ComponentSchema {
   collectionName: 'components_basic_image_rows';
   info: {
     description: '';
-    displayName: 'Image Row';
+    displayName: 'Deprecated \u2013 Image Row';
     icon: 'alien';
   };
   attributes: {
@@ -52,21 +52,13 @@ export interface BasicTable extends Struct.ComponentSchema {
   collectionName: 'components_basic_tables';
   info: {
     description: '';
-    displayName: 'Table';
+    displayName: 'Deprecated \u2013 Table';
     icon: 'grid';
   };
   attributes: {
     row_header: Schema.Attribute.String & Schema.Attribute.Required;
     row_value: Schema.Attribute.String;
   };
-}
-
-export interface BasicWorkshopContent extends Struct.ComponentSchema {
-  collectionName: 'components_basic_workshop_contents';
-  info: {
-    displayName: 'workshop_content';
-  };
-  attributes: {};
 }
 
 declare module '@strapi/strapi' {
@@ -77,7 +69,6 @@ declare module '@strapi/strapi' {
       'basic.faq-item': BasicFaqItem;
       'basic.image-row': BasicImageRow;
       'basic.table': BasicTable;
-      'basic.workshop-content': BasicWorkshopContent;
     }
   }
 }

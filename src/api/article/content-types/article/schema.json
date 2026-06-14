@@ -4,7 +4,7 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Article",
+    "displayName": "Articles",
     "description": ""
   },
   "options": {
@@ -17,45 +17,45 @@
   },
   "attributes": {
     "article_title": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     },
     "article_slug": {
+      "type": "uid",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "uid",
       "targetField": "article_title",
       "required": true
     },
     "article_content": {
+      "type": "blocks",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "blocks",
       "required": true
     },
     "article_cover": {
       "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "article_author": {
       "type": "relation",
@@ -64,12 +64,12 @@
       "inversedBy": "team_member_wrote"
     },
     "article_perex": {
+      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "text",
       "required": true
     }
   }

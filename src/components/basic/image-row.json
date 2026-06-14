@@ -1,7 +1,7 @@
 {
   "collectionName": "components_basic_image_rows",
   "info": {
-    "displayName": "Image Row",
+    "displayName": "Deprecated – Image Row",
     "icon": "alien",
     "description": ""
   },
@@ -16,11 +16,11 @@
       ]
     },
     "second_image": {
+      "type": "media",
+      "multiple": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "payment-info",
     "pluralName": "payment-infos",
-    "displayName": "Payment info",
+    "displayName": "Read only – Payment info",
     "description": ""
   },
   "options": {
@@ -23,11 +23,11 @@
     },
     "branch": {
       "type": "enumeration",
+      "required": true,
       "enum": [
         "BRNO",
         "PRAHA"
-      ],
-      "required": true
+      ]
     },
     "url": {
       "type": "string",
@@ -38,13 +38,13 @@
     },
     "state": {
       "type": "enumeration",
+      "required": true,
+      "default": "IN_PROGRESS",
       "enum": [
         "IN_PROGRESS",
         "FAILED",
         "DONE"
-      ],
-      "required": true,
-      "default": "IN_PROGRESS"
+      ]
     }
   }
 }

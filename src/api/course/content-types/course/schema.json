@@ -4,7 +4,7 @@
   "info": {
     "singularName": "course",
     "pluralName": "courses",
-    "displayName": "Course (deprecated)",
+    "displayName": "Deprecated – Course",
     "description": ""
   },
   "options": {
@@ -17,81 +17,81 @@
   },
   "attributes": {
     "course_name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     },
     "course_short_perex": {
+      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "text",
-      "required": true,
-      "maxLength": 300
+      "maxLength": 300,
+      "required": true
     },
     "course_rich_text": {
+      "type": "blocks",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "blocks",
       "required": true
     },
     "course_gallery": {
       "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "multiple": true,
       "required": true,
       "allowedTypes": [
         "images"
-      ],
+      ]
+    },
+    "course_perex": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "course_slug": {
+      "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "targetField": "course_name",
+      "required": true
+    },
+    "course_client_quote": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": false
+    },
+    "course_client_quote_name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
-    },
-    "course_perex": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text",
-      "required": true
-    },
-    "course_slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "uid",
-      "targetField": "course_name",
-      "required": true
-    },
-    "course_client_quote": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text",
-      "required": false
-    },
-    "course_client_quote_name": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
     }
   }
 }

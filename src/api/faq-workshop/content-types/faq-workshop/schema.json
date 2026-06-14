@@ -4,7 +4,7 @@
   "info": {
     "singularName": "faq-workshop",
     "pluralName": "faq-workshops",
-    "displayName": "Faq workshop",
+    "displayName": "Deprecated – Faq workshop",
     "description": ""
   },
   "options": {
@@ -18,13 +18,13 @@
   "attributes": {
     "faqs": {
       "type": "component",
-      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "component": "basic.faq-item",
+      "repeatable": true,
       "required": true
     }
   }

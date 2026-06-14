@@ -4,7 +4,7 @@
   "info": {
     "singularName": "faq-product",
     "pluralName": "faq-products",
-    "displayName": "Faq product",
+    "displayName": "Deprecated – Faq product",
     "description": ""
   },
   "options": {
@@ -18,13 +18,13 @@
   "attributes": {
     "faqs": {
       "type": "component",
-      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "component": "basic.faq-item",
+      "repeatable": true,
       "required": true
     }
   }

@@ -505,7 +505,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
     description: '';
-    displayName: 'Article';
+    displayName: 'Articles';
     pluralName: 'articles';
     singularName: 'article';
   };
@@ -575,7 +575,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
 export interface ApiAuthTokenAuthToken extends Struct.CollectionTypeSchema {
   collectionName: 'auth_tokens';
   info: {
-    displayName: 'Auth token';
+    displayName: 'Read only \u2013 Auth token';
     pluralName: 'auth-tokens';
     singularName: 'auth-token';
   };
@@ -607,7 +607,7 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
   collectionName: 'case_studies';
   info: {
     description: '';
-    displayName: 'Case Study';
+    displayName: 'Deprecated \u2013 Case Study';
     pluralName: 'case-studies';
     singularName: 'case-study';
   };
@@ -696,7 +696,7 @@ export interface ApiCourseOwnershipCourseOwnership
   collectionName: 'course_ownerships';
   info: {
     description: '';
-    displayName: 'Course ownership \u2620\uFE0F';
+    displayName: 'Read only \u2013 Course ownership';
     pluralName: 'course-ownerships';
     singularName: 'course-ownership';
   };
@@ -730,7 +730,7 @@ export interface ApiCourseRedeemCodeCourseRedeemCode
   collectionName: 'course_redeem_codes';
   info: {
     description: '';
-    displayName: 'Course redeem code \uD83E\uDDD0';
+    displayName: 'Read only \u2013 Course redeem code';
     pluralName: 'course-redeem-codes';
     singularName: 'course-redeem-code';
   };
@@ -764,7 +764,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
   collectionName: 'courses';
   info: {
     description: '';
-    displayName: 'Course (deprecated)';
+    displayName: 'Deprecated \u2013 Course';
     pluralName: 'courses';
     singularName: 'course';
   };
@@ -850,7 +850,7 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
   collectionName: 'customers';
   info: {
     description: '';
-    displayName: 'Customer \u2620\uFE0F';
+    displayName: 'Read only \u2013 Customer';
     pluralName: 'customers';
     singularName: 'customer';
   };
@@ -891,7 +891,7 @@ export interface ApiFaqOnlineCourseFaqOnlineCourse
   extends Struct.SingleTypeSchema {
   collectionName: 'faq_online_courses';
   info: {
-    displayName: 'Faq online course';
+    displayName: 'Deprecated \u2013 Faq online course';
     pluralName: 'faq-online-courses';
     singularName: 'faq-online-course';
   };
@@ -930,7 +930,7 @@ export interface ApiFaqProductFaqProduct extends Struct.SingleTypeSchema {
   collectionName: 'faq_products';
   info: {
     description: '';
-    displayName: 'Faq product';
+    displayName: 'Deprecated \u2013 Faq product';
     pluralName: 'faq-products';
     singularName: 'faq-product';
   };
@@ -969,7 +969,7 @@ export interface ApiFaqWorkshopFaqWorkshop extends Struct.SingleTypeSchema {
   collectionName: 'faq_workshops';
   info: {
     description: '';
-    displayName: 'Faq workshop';
+    displayName: 'Deprecated \u2013 Faq workshop';
     pluralName: 'faq-workshops';
     singularName: 'faq-workshop';
   };
@@ -1009,7 +1009,7 @@ export interface ApiNotificationNotification
   collectionName: 'notifications';
   info: {
     description: '';
-    displayName: 'News';
+    displayName: 'Notifications';
     pluralName: 'notifications';
     singularName: 'notification';
   };
@@ -1055,7 +1055,7 @@ export interface ApiOnlineCourseOnlineCourse
   extends Struct.CollectionTypeSchema {
   collectionName: 'online_courses';
   info: {
-    displayName: 'Online course';
+    displayName: 'WIP \u2013 Online course';
     pluralName: 'online-courses';
     singularName: 'online-course';
   };
@@ -1090,7 +1090,7 @@ export interface ApiPaymentInfoPaymentInfo extends Struct.CollectionTypeSchema {
   collectionName: 'payment_infos';
   info: {
     description: '';
-    displayName: 'Payment info';
+    displayName: 'Read only \u2013 Payment info';
     pluralName: 'payment-infos';
     singularName: 'payment-info';
   };
@@ -1129,7 +1129,7 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
   collectionName: 'places';
   info: {
     description: '';
-    displayName: 'Place';
+    displayName: 'Deprecated \u2013 Place';
     pluralName: 'places';
     singularName: 'place';
   };
@@ -1247,7 +1247,7 @@ export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
   collectionName: 'team_members';
   info: {
     description: '';
-    displayName: 'Team member';
+    displayName: 'Deprecated \u2013 Team member';
     pluralName: 'team-members';
     singularName: 'team-member';
   };
@@ -1350,7 +1350,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
   collectionName: 'workshops';
   info: {
     description: '';
-    displayName: 'Workshop';
+    displayName: 'Deprecated \u2013 Workshop';
     pluralName: 'workshops';
     singularName: 'workshop';
   };

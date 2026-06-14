@@ -1,7 +1,7 @@
 {
   "collectionName": "components_basic_client_quotes",
   "info": {
-    "displayName": "Client Quote",
+    "displayName": "Deprecated – Client Quote",
     "icon": "feather"
   },
   "options": {},

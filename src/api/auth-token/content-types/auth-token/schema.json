@@ -4,7 +4,7 @@
   "info": {
     "singularName": "auth-token",
     "pluralName": "auth-tokens",
-    "displayName": "Auth token"
+    "displayName": "Read only – Auth token"
   },
   "options": {
     "draftAndPublish": false
@@ -17,11 +17,11 @@
     },
     "type": {
       "type": "enumeration",
+      "required": true,
       "enum": [
         "user-activation",
         "forgot-password"
-      ],
-      "required": true
+      ]
     },
     "token": {
       "type": "string",

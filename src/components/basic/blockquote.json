@@ -1,7 +1,7 @@
 {
   "collectionName": "components_basic_blockquotes",
   "info": {
-    "displayName": "Blockquote",
+    "displayName": "Deprecated – Blockquote",
     "icon": "envelop"
   },
   "options": {},

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "place",
     "pluralName": "places",
-    "displayName": "Place",
+    "displayName": "Deprecated – Place",
     "description": ""
   },
   "options": {
@@ -17,73 +17,73 @@
   },
   "attributes": {
     "place_name": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "place_short_description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "place_description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text"
-    },
-    "place_cover": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "place_address_street": {
+    "place_short_description": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "place_description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "place_cover": {
+      "type": "media",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string"
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "place_address_street": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "place_address_city": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "place_address_postalCode": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "place_address_full": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "place_team_member": {
       "type": "relation",
@@ -92,53 +92,53 @@
       "inversedBy": "places"
     },
     "place_show_team_member_phone": {
+      "type": "boolean",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "boolean",
       "default": false
     },
     "place_opening_hours": {
+      "type": "json",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "type": "json"
+      }
     },
     "place_opening_hours_text": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "place_id": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "type": "string"
+      }
     },
     "place_priority": {
+      "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "type": "integer"
+      }
     },
     "place_address_description": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     }
   }
 }

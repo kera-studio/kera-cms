@@ -4,7 +4,7 @@
   "info": {
     "singularName": "case-study",
     "pluralName": "case-studies",
-    "displayName": "Case Study",
+    "displayName": "Deprecated – Case Study",
     "description": ""
   },
   "options": {
@@ -17,64 +17,64 @@
   },
   "attributes": {
     "case_study_name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     },
     "case_study_slug": {
+      "type": "uid",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "uid",
       "targetField": "case_study_name",
       "required": true
     },
     "case_study_cover": {
       "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "case_study_features": {
       "type": "component",
-      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "component": "basic.table",
+      "repeatable": true,
       "required": false
     },
     "case_study_description": {
+      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "text",
       "required": true
     },
     "case_study_content": {
+      "type": "dynamiczone",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "dynamiczone",
       "components": [
         "basic.image-row",
         "basic.blockquote",
@@ -82,21 +82,21 @@
       ]
     },
     "case_study_year": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     },
     "case_study_heading": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string",
       "required": true
     }
   }

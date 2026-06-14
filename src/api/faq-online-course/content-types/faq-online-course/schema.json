@@ -4,7 +4,7 @@
   "info": {
     "singularName": "faq-online-course",
     "pluralName": "faq-online-courses",
-    "displayName": "Faq online course"
+    "displayName": "Deprecated – Faq online course"
   },
   "options": {
     "draftAndPublish": true
@@ -17,13 +17,13 @@
   "attributes": {
     "faqs": {
       "type": "component",
-      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "component": "basic.faq-item",
+      "repeatable": true,
       "required": true
     }
   }
