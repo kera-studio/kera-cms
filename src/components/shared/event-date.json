@@ -10,9 +10,6 @@
     "date": {
       "type": "datetime",
       "required": true
-    },
-    "label": {
-      "type": "string"
     }
   }
 }

@@ -54,7 +54,7 @@
       "components": [
         "content.richtext",
         "content.media-row",
-        "shared.video",
+        "content.video",
         "content.premade-products"
       ]
     },

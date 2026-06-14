@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-06-14T16:42:53.550Z"
+    "x-generation-date": "2026-06-14T17:00:26.745Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -27047,7 +27047,7 @@
                       "$ref": "#/components/schemas/ContentMediaRowComponent"
                     },
                     {
-                      "$ref": "#/components/schemas/SharedVideoComponent"
+                      "$ref": "#/components/schemas/ContentVideoComponent"
                     },
                     {
                       "$ref": "#/components/schemas/ContentPremadeProductsComponent"
@@ -27059,7 +27059,7 @@
                   "mapping": {
                     "content.richtext": "#/components/schemas/ContentRichtextComponent",
                     "content.media-row": "#/components/schemas/ContentMediaRowComponent",
-                    "shared.video": "#/components/schemas/SharedVideoComponent",
+                    "content.video": "#/components/schemas/ContentVideoComponent",
                     "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
                   }
                 }
@@ -27174,7 +27174,7 @@
                   "$ref": "#/components/schemas/ContentMediaRowComponent"
                 },
                 {
-                  "$ref": "#/components/schemas/SharedVideoComponent"
+                  "$ref": "#/components/schemas/ContentVideoComponent"
                 },
                 {
                   "$ref": "#/components/schemas/ContentPremadeProductsComponent"
@@ -27186,7 +27186,7 @@
               "mapping": {
                 "content.richtext": "#/components/schemas/ContentRichtextComponent",
                 "content.media-row": "#/components/schemas/ContentMediaRowComponent",
-                "shared.video": "#/components/schemas/SharedVideoComponent",
+                "content.video": "#/components/schemas/ContentVideoComponent",
                 "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
               }
             }
@@ -27560,7 +27560,7 @@
                         "$ref": "#/components/schemas/ContentMediaRowComponent"
                       },
                       {
-                        "$ref": "#/components/schemas/SharedVideoComponent"
+                        "$ref": "#/components/schemas/ContentVideoComponent"
                       },
                       {
                         "$ref": "#/components/schemas/ContentPremadeProductsComponent"
@@ -27572,7 +27572,7 @@
                     "mapping": {
                       "content.richtext": "#/components/schemas/ContentRichtextComponent",
                       "content.media-row": "#/components/schemas/ContentMediaRowComponent",
-                      "shared.video": "#/components/schemas/SharedVideoComponent",
+                      "content.video": "#/components/schemas/ContentVideoComponent",
                       "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
                     }
                   }
@@ -28591,7 +28591,7 @@
           }
         }
       },
-      "SharedVideoComponent": {
+      "ContentVideoComponent": {
         "type": "object",
         "properties": {
           "id": {
@@ -28607,7 +28607,7 @@
           "__component": {
             "type": "string",
             "enum": [
-              "shared.video"
+              "content.video"
             ]
           },
           "videoId": {
@@ -36785,7 +36785,7 @@
                       "$ref": "#/components/schemas/ContentMediaRowComponent"
                     },
                     {
-                      "$ref": "#/components/schemas/SharedVideoComponent"
+                      "$ref": "#/components/schemas/ContentVideoComponent"
                     },
                     {
                       "$ref": "#/components/schemas/ContentPremadeProductsComponent"
@@ -36797,7 +36797,7 @@
                   "mapping": {
                     "content.richtext": "#/components/schemas/ContentRichtextComponent",
                     "content.media-row": "#/components/schemas/ContentMediaRowComponent",
-                    "shared.video": "#/components/schemas/SharedVideoComponent",
+                    "content.video": "#/components/schemas/ContentVideoComponent",
                     "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
                   }
                 }
@@ -36911,7 +36911,7 @@
                   "$ref": "#/components/schemas/ContentMediaRowComponent"
                 },
                 {
-                  "$ref": "#/components/schemas/SharedVideoComponent"
+                  "$ref": "#/components/schemas/ContentVideoComponent"
                 },
                 {
                   "$ref": "#/components/schemas/ContentPremadeProductsComponent"
@@ -36923,7 +36923,7 @@
               "mapping": {
                 "content.richtext": "#/components/schemas/ContentRichtextComponent",
                 "content.media-row": "#/components/schemas/ContentMediaRowComponent",
-                "shared.video": "#/components/schemas/SharedVideoComponent",
+                "content.video": "#/components/schemas/ContentVideoComponent",
                 "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
               }
             }
@@ -37028,7 +37028,7 @@
                         "$ref": "#/components/schemas/ContentMediaRowComponent"
                       },
                       {
-                        "$ref": "#/components/schemas/SharedVideoComponent"
+                        "$ref": "#/components/schemas/ContentVideoComponent"
                       },
                       {
                         "$ref": "#/components/schemas/ContentPremadeProductsComponent"
@@ -37040,7 +37040,7 @@
                     "mapping": {
                       "content.richtext": "#/components/schemas/ContentRichtextComponent",
                       "content.media-row": "#/components/schemas/ContentMediaRowComponent",
-                      "shared.video": "#/components/schemas/SharedVideoComponent",
+                      "content.video": "#/components/schemas/ContentVideoComponent",
                       "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
                     }
                   }
@@ -40580,7 +40580,7 @@
                       "$ref": "#/components/schemas/ContentMediaRowComponent"
                     },
                     {
-                      "$ref": "#/components/schemas/SharedVideoComponent"
+                      "$ref": "#/components/schemas/ContentVideoComponent"
                     },
                     {
                       "$ref": "#/components/schemas/ContentPremadeProductsComponent"
@@ -40592,7 +40592,7 @@
                   "mapping": {
                     "content.richtext": "#/components/schemas/ContentRichtextComponent",
                     "content.media-row": "#/components/schemas/ContentMediaRowComponent",
-                    "shared.video": "#/components/schemas/SharedVideoComponent",
+                    "content.video": "#/components/schemas/ContentVideoComponent",
                     "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
                   }
                 }
@@ -40708,7 +40708,7 @@
                   "$ref": "#/components/schemas/ContentMediaRowComponent"
                 },
                 {
-                  "$ref": "#/components/schemas/SharedVideoComponent"
+                  "$ref": "#/components/schemas/ContentVideoComponent"
                 },
                 {
                   "$ref": "#/components/schemas/ContentPremadeProductsComponent"
@@ -40720,7 +40720,7 @@
               "mapping": {
                 "content.richtext": "#/components/schemas/ContentRichtextComponent",
                 "content.media-row": "#/components/schemas/ContentMediaRowComponent",
-                "shared.video": "#/components/schemas/SharedVideoComponent",
+                "content.video": "#/components/schemas/ContentVideoComponent",
                 "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
               }
             }
@@ -40828,7 +40828,7 @@
                         "$ref": "#/components/schemas/ContentMediaRowComponent"
                       },
                       {
-                        "$ref": "#/components/schemas/SharedVideoComponent"
+                        "$ref": "#/components/schemas/ContentVideoComponent"
                       },
                       {
                         "$ref": "#/components/schemas/ContentPremadeProductsComponent"
@@ -40840,7 +40840,7 @@
                     "mapping": {
                       "content.richtext": "#/components/schemas/ContentRichtextComponent",
                       "content.media-row": "#/components/schemas/ContentMediaRowComponent",
-                      "shared.video": "#/components/schemas/SharedVideoComponent",
+                      "content.video": "#/components/schemas/ContentVideoComponent",
                       "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
                     }
                   }
@@ -40963,9 +40963,6 @@
           "date": {
             "type": "string",
             "format": "date-time"
-          },
-          "label": {
-            "type": "string"
           }
         }
       },

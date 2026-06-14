@@ -1188,7 +1188,7 @@ export interface ApiGroupActivityGroupActivity
       [
         'content.richtext',
         'content.media-row',
-        'shared.video',
+        'content.video',
         'content.premade-products',
       ]
     > &
@@ -1608,7 +1608,7 @@ export interface ApiSelfserviceActivitySelfserviceActivity
       [
         'content.richtext',
         'content.media-row',
-        'shared.video',
+        'content.video',
         'content.premade-products',
       ]
     > &
@@ -1794,7 +1794,7 @@ export interface ApiWorkshopActivityWorkshopActivity
       [
         'content.richtext',
         'content.media-row',
-        'shared.video',
+        'content.video',
         'content.premade-products',
       ]
     > &

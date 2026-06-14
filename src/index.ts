@@ -77,10 +77,6 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
     withVat: 'Includes VAT',
     suffix: 'Suffix',
   },
-  'shared.video': {
-    videoId: 'YouTube video ID',
-    title: 'Title (for reference)',
-  },
   'shared.table-row': {
     header: 'Label',
     body: 'Value',
@@ -99,6 +95,10 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
   },
   'content.richtext': {
     body: 'Text',
+  },
+  'content.video': {
+    videoId: 'YouTube video ID',
+    title: 'Title (for reference)',
   },
   'content.media-row': {
     imageOne: 'First image',

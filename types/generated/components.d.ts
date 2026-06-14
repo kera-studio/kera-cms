@@ -129,6 +129,19 @@ export interface ContentRichtext extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentVideo extends Struct.ComponentSchema {
+  collectionName: 'components_content_videos';
+  info: {
+    description: 'External video reference (e.g. YouTube video ID), with a title for editor orientation.';
+    displayName: 'Video';
+    icon: 'play';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    videoId: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedEventDate extends Struct.ComponentSchema {
   collectionName: 'components_shared_event_dates';
   info: {
@@ -138,7 +151,6 @@ export interface SharedEventDate extends Struct.ComponentSchema {
   };
   attributes: {
     date: Schema.Attribute.DateTime & Schema.Attribute.Required;
-    label: Schema.Attribute.String;
   };
 }
 
@@ -202,19 +214,6 @@ export interface SharedUsp extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedVideo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_videos';
-  info: {
-    description: 'External video reference (e.g. YouTube video ID), with a title for editor orientation.';
-    displayName: 'Video';
-    icon: 'play';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    videoId: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -227,12 +226,12 @@ declare module '@strapi/strapi' {
       'content.media-row': ContentMediaRow;
       'content.premade-products': ContentPremadeProducts;
       'content.richtext': ContentRichtext;
+      'content.video': ContentVideo;
       'shared.event-date': SharedEventDate;
       'shared.list-item': SharedListItem;
       'shared.price': SharedPrice;
       'shared.table-row': SharedTableRow;
       'shared.usp': SharedUsp;
-      'shared.video': SharedVideo;
     }
   }
 }
