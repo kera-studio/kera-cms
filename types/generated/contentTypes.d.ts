@@ -1127,12 +1127,6 @@ export interface ApiGroupActivityLessonGroupActivityLesson
           localized: true;
         };
       }>;
-    internalDisplayName: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1191,7 +1185,12 @@ export interface ApiGroupActivityGroupActivity
         };
       }>;
     content: Schema.Attribute.DynamicZone<
-      ['content.richtext', 'content.media-row', 'content.premade-products']
+      [
+        'content.richtext',
+        'content.media-row',
+        'shared.video',
+        'content.premade-products',
+      ]
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1205,12 +1204,6 @@ export interface ApiGroupActivityGroupActivity
       'oneToMany',
       'api::group-activity-lesson.group-activity-lesson'
     > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    internalDisplayName: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1612,7 +1605,12 @@ export interface ApiSelfserviceActivitySelfserviceActivity
         };
       }>;
     content: Schema.Attribute.DynamicZone<
-      ['content.richtext', 'content.media-row', 'content.premade-products']
+      [
+        'content.richtext',
+        'content.media-row',
+        'shared.video',
+        'content.premade-products',
+      ]
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1622,12 +1620,6 @@ export interface ApiSelfserviceActivitySelfserviceActivity
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    internalDisplayName: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1643,7 +1635,7 @@ export interface ApiSelfserviceActivitySelfserviceActivity
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'> &
+    slug: Schema.Attribute.UID &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1799,7 +1791,12 @@ export interface ApiWorkshopActivityWorkshopActivity
         };
       }>;
     content: Schema.Attribute.DynamicZone<
-      ['content.richtext', 'content.media-row', 'content.premade-products']
+      [
+        'content.richtext',
+        'content.media-row',
+        'shared.video',
+        'content.premade-products',
+      ]
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1810,12 +1807,6 @@ export interface ApiWorkshopActivityWorkshopActivity
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     dates: Schema.Attribute.Component<'shared.event-date', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    internalDisplayName: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1836,7 +1827,7 @@ export interface ApiWorkshopActivityWorkshopActivity
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'> &
+    slug: Schema.Attribute.UID &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

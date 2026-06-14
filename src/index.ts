@@ -37,7 +37,6 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     images: 'Images',
   },
   'api::group-activity-lesson.group-activity-lesson': {
-    internalDisplayName: 'Internal label',
     title: 'Title',
     slug: 'URL slug',
     coverPhoto: 'Cover photo',
@@ -46,7 +45,6 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     price: 'Price',
   },
   'api::group-activity.group-activity': {
-    internalDisplayName: 'Internal label',
     title: 'Title',
     slug: 'URL slug',
     base: 'Activity details',
@@ -54,20 +52,20 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     groupActivityLessons: 'Lessons',
   },
   'api::workshop-activity.workshop-activity': {
-    internalDisplayName: 'Internal label',
     title: 'Title',
     slug: 'URL slug',
     base: 'Activity details',
     content: 'Page content',
     dates: 'Scheduled dates',
+    location: 'Studio location',
   },
   'api::selfservice-activity.selfservice-activity': {
-    internalDisplayName: 'Internal label',
     title: 'Title',
     slug: 'URL slug',
     base: 'Activity details',
     content: 'Page content',
     withPremadeProducts: 'Backed by premade products',
+    location: 'Studio location',
   },
 };
 
@@ -81,6 +79,7 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
   },
   'shared.video': {
     videoId: 'YouTube video ID',
+    title: 'Title (for reference)',
   },
   'shared.table-row': {
     header: 'Label',
@@ -98,15 +97,12 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
     date: 'Date & time',
     label: 'Label',
   },
-  'shared.media-item': {
-    image: 'Image',
-    video: 'Video',
-  },
   'content.richtext': {
     body: 'Text',
   },
   'content.media-row': {
-    items: 'Media (1–2 items)',
+    imageOne: 'First image',
+    imageTwo: 'Second image',
   },
   'content.premade-products': {
     products: 'Products',
@@ -124,6 +120,23 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
   },
 };
 
+/**
+ * Lifecycle-generated fields: shown read-only in the admin with a note, so
+ * editors don't try to set them (and don't see a misleading live preview —
+ * e.g. a `uid` with targetField would otherwise show a title-only slug).
+ */
+const READONLY_FIELDS: Record<string, Record<string, string>> = {
+  'api::premade-product.premade-product': {
+    internalDisplayName: 'Generated from product + location on save.',
+  },
+  'api::workshop-activity.workshop-activity': {
+    slug: 'Generated from title + location on save.',
+  },
+  'api::selfservice-activity.selfservice-activity': {
+    slug: 'Generated from title + location on save.',
+  },
+};
+
 /** Patch a Content-Manager configuration's metadata labels in place. */
 function applyLabels(config, labels: Record<string, string>): boolean {
   let changed = false;
@@ -132,6 +145,18 @@ function applyLabels(config, labels: Record<string, string>): boolean {
     if (!meta) continue;
     meta.edit = { ...(meta.edit ?? {}), label };
     if (meta.list) meta.list = { ...meta.list, label };
+    changed = true;
+  }
+  return changed;
+}
+
+/** Mark fields as non-editable in the admin and attach an explanatory note. */
+function applyReadonly(config, fields: Record<string, string>): boolean {
+  let changed = false;
+  for (const [field, description] of Object.entries(fields)) {
+    const meta = config?.metadatas?.[field];
+    if (!meta) continue;
+    meta.edit = { ...(meta.edit ?? {}), editable: false, description };
     changed = true;
   }
   return changed;
@@ -159,7 +184,11 @@ async function seedAdminConfig(strapi) {
       continue;
     }
     const config = await ctService.findConfiguration(contentType);
-    const changed = [applyLabels(config, labels), makeFullWidth(config)].some(Boolean);
+    const changed = [
+      applyLabels(config, labels),
+      applyReadonly(config, READONLY_FIELDS[uid] ?? {}),
+      makeFullWidth(config),
+    ].some(Boolean);
     if (changed) {
       await ctService.updateConfiguration(contentType, config);
     }

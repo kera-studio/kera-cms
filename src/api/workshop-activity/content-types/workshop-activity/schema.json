@@ -16,14 +16,6 @@
     }
   },
   "attributes": {
-    "internalDisplayName": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "title": {
       "type": "string",
       "pluginOptions": {
@@ -39,8 +31,7 @@
         "i18n": {
           "localized": true
         }
-      },
-      "targetField": "title"
+      }
     },
     "base": {
       "type": "component",
@@ -63,6 +54,7 @@
       "components": [
         "content.richtext",
         "content.media-row",
+        "shared.video",
         "content.premade-products"
       ]
     },

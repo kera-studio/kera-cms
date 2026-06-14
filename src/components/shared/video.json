@@ -3,13 +3,17 @@
   "info": {
     "displayName": "Video",
     "icon": "play",
-    "description": "External video reference (e.g. YouTube video ID)."
+    "description": "External video reference (e.g. YouTube video ID), with a title for editor orientation."
   },
   "options": {},
   "attributes": {
     "videoId": {
       "type": "string",
       "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": false
     }
   }
 }

@@ -92,20 +92,13 @@ export interface BasicTable extends Struct.ComponentSchema {
 export interface ContentMediaRow extends Struct.ComponentSchema {
   collectionName: 'components_content_media_rows';
   info: {
-    description: 'A row of 1-2 media items; images and videos can be mixed.';
+    description: 'A row of one or two images.';
     displayName: 'Media Row';
     icon: 'landscape';
   };
   attributes: {
-    items: Schema.Attribute.Component<'shared.media-item', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 2;
-          min: 1;
-        },
-        number
-      >;
+    imageOne: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    imageTwo: Schema.Attribute.Media<'images'>;
   };
 }
 
@@ -161,19 +154,6 @@ export interface SharedListItem extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedMediaItem extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media_items';
-  info: {
-    description: 'A single slot holding either an image or a video. Fill exactly one.';
-    displayName: 'Media Item';
-    icon: 'picture';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'images'>;
-    video: Schema.Attribute.Component<'shared.video', false>;
-  };
-}
-
 export interface SharedPrice extends Struct.ComponentSchema {
   collectionName: 'components_shared_prices';
   info: {
@@ -225,11 +205,12 @@ export interface SharedUsp extends Struct.ComponentSchema {
 export interface SharedVideo extends Struct.ComponentSchema {
   collectionName: 'components_shared_videos';
   info: {
-    description: 'External video reference (e.g. YouTube video ID).';
+    description: 'External video reference (e.g. YouTube video ID), with a title for editor orientation.';
     displayName: 'Video';
     icon: 'play';
   };
   attributes: {
+    title: Schema.Attribute.String;
     videoId: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -248,7 +229,6 @@ declare module '@strapi/strapi' {
       'content.richtext': ContentRichtext;
       'shared.event-date': SharedEventDate;
       'shared.list-item': SharedListItem;
-      'shared.media-item': SharedMediaItem;
       'shared.price': SharedPrice;
       'shared.table-row': SharedTableRow;
       'shared.usp': SharedUsp;
