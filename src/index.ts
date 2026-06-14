@@ -121,6 +121,30 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
 };
 
 /**
+ * Entry title (`mainField`): the attribute used to label an entry in the admin
+ * and, crucially, in relation pickers on other content types. Without this it
+ * defaults to `documentId`, so a relation to one of these types renders as an
+ * opaque hash. Point it at the human-readable (lifecycle-generated) label.
+ */
+const MAIN_FIELDS: Record<string, string> = {
+  'api::premade-product.premade-product': 'internalDisplayName',
+  'api::gallery.gallery': 'internalDisplayName',
+};
+
+/**
+ * Per-relation entry title: a relation field stores its OWN `edit.mainField`,
+ * captured when the field was first configured. Setting the target type's
+ * `mainField` (above) only changes the default for new relations — existing
+ * relation fields keep their stored value (often the `documentId` fallback,
+ * which renders as a hash). Keyed by the content type / component that OWNS the
+ * relation, then by field name, with the target attribute to display.
+ */
+const RELATION_MAIN_FIELDS: Record<string, Record<string, string>> = {
+  'content.premade-products': { products: 'internalDisplayName' },
+  'api::product.product': { premadeProducts: 'internalDisplayName' },
+};
+
+/**
  * Lifecycle-generated fields: shown read-only in the admin with a note, so
  * editors don't try to set them (and don't see a misleading live preview —
  * e.g. a `uid` with targetField would otherwise show a title-only slug).
@@ -162,6 +186,25 @@ function applyReadonly(config, fields: Record<string, string>): boolean {
   return changed;
 }
 
+/** Set the entry title (`mainField`) used in lists and relation pickers. */
+function applyMainField(config, mainField: string): boolean {
+  if (!mainField || config?.settings?.mainField === mainField) return false;
+  config.settings = { ...(config.settings ?? {}), mainField };
+  return true;
+}
+
+/** Set the attribute each relation field uses to label its related entries. */
+function applyRelationMainFields(config, fields: Record<string, string>): boolean {
+  let changed = false;
+  for (const [field, mainField] of Object.entries(fields)) {
+    const meta = config?.metadatas?.[field];
+    if (!meta || meta.edit?.mainField === mainField) continue;
+    meta.edit = { ...(meta.edit ?? {}), mainField };
+    changed = true;
+  }
+  return changed;
+}
+
 /**
  * Force the edit form to one field per row, each full width (size 12) — no
  * side-by-side columns. Valid for every field type: component/dynamiczone/
@@ -187,6 +230,8 @@ async function seedAdminConfig(strapi) {
     const changed = [
       applyLabels(config, labels),
       applyReadonly(config, READONLY_FIELDS[uid] ?? {}),
+      applyMainField(config, MAIN_FIELDS[uid]),
+      applyRelationMainFields(config, RELATION_MAIN_FIELDS[uid] ?? {}),
       makeFullWidth(config),
     ].some(Boolean);
     if (changed) {
@@ -202,7 +247,11 @@ async function seedAdminConfig(strapi) {
       continue;
     }
     const config = await compService.findConfiguration(component);
-    const changed = [applyLabels(config, labels), makeFullWidth(config)].some(Boolean);
+    const changed = [
+      applyLabels(config, labels),
+      applyRelationMainFields(config, RELATION_MAIN_FIELDS[uid] ?? {}),
+      makeFullWidth(config),
+    ].some(Boolean);
     if (changed) {
       await compService.updateConfiguration(component, config);
     }

@@ -8,7 +8,8 @@
 
 function resolveProductId(relation): number | string | null {
   if (relation == null) return null;
-  if (typeof relation === 'number' || typeof relation === 'string') return relation;
+  if (typeof relation === "number" || typeof relation === "string")
+    return relation;
   if (Array.isArray(relation)) {
     const first = relation[0];
     return first?.id ?? first ?? null;
@@ -30,11 +31,11 @@ async function setInternalDisplayName(event) {
   if (!productId || !data?.location) return;
 
   const product = await strapi.db
-    .query('api::product.product')
-    .findOne({ where: { id: productId }, select: ['title'] });
+    .query("api::product.product")
+    .findOne({ where: { id: productId }, select: ["title"] });
 
-  const title = product?.title ?? '';
-  data.internalDisplayName = [title, data.location].filter(Boolean).join(' – ');
+  const title = product?.title ?? "";
+  data.internalDisplayName = [title, data.location].filter(Boolean).join(" – ");
 }
 
 export default {

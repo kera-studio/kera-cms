@@ -150,7 +150,9 @@ export interface SharedEventDate extends Struct.ComponentSchema {
     icon: 'calendar';
   };
   attributes: {
-    date: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    date: Schema.Attribute.Date & Schema.Attribute.Required;
+    endTime: Schema.Attribute.Time;
+    startTime: Schema.Attribute.Time;
   };
 }
 

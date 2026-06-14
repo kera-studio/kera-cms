@@ -8,8 +8,15 @@
   "options": {},
   "attributes": {
     "date": {
-      "type": "datetime",
+      "type": "date",
       "required": true
+    },
+    "startTime": {
+      "type": "time",
+      "required": false
+    },
+    "endTime": {
+      "type": "time"
     }
   }
 }
