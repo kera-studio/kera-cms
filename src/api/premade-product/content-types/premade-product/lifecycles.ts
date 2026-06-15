@@ -24,18 +24,30 @@ function resolveProductId(relation): number | string | null {
 }
 
 async function setInternalDisplayName(event) {
-  const { data } = event.params;
+  const { data, where } = event.params;
 
-  // On update, product/location may be absent (unchanged) — leave the name as is.
-  const productId = resolveProductId(data?.product);
-  if (!productId || !data?.location) return;
+  let productId = resolveProductId(data?.product);
+  let location = data?.location;
+
+  // On update the admin only sends changed fields, so the unchanged half of the
+  // name (product OR location) is absent. Backfill it from the existing row so
+  // editing one field still rebuilds the full name instead of bailing out.
+  if ((!productId || !location) && where?.id != null) {
+    const existing = await strapi.db
+      .query("api::premade-product.premade-product")
+      .findOne({ where: { id: where.id }, populate: { product: true } });
+    if (!productId) productId = existing?.product?.id ?? null;
+    if (!location) location = existing?.location ?? null;
+  }
+
+  if (!productId || !location) return;
 
   const product = await strapi.db
     .query("api::product.product")
     .findOne({ where: { id: productId }, select: ["title"] });
 
   const title = product?.title ?? "";
-  data.internalDisplayName = [title, data.location].filter(Boolean).join(" – ");
+  data.internalDisplayName = [title, location].filter(Boolean).join(" – ");
 }
 
 export default {
