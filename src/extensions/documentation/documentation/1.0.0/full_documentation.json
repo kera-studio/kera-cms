@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-06-16T13:24:48.627Z"
+    "x-generation-date": "2026-06-16T13:33:14.680Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -27391,7 +27391,10 @@
                   "type": "string"
                 },
                 "details": {
-                  "$ref": "#/components/schemas/SharedTableRowComponent"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SharedTableRowComponent"
+                  }
                 },
                 "price": {
                   "$ref": "#/components/schemas/SharedPriceComponent"
@@ -28679,7 +28682,10 @@
                 "type": "string"
               },
               "details": {
-                "$ref": "#/components/schemas/SharedTableRowComponent"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SharedTableRowComponent"
+                }
               },
               "price": {
                 "$ref": "#/components/schemas/SharedPriceComponent"
@@ -29583,7 +29589,10 @@
             "type": "string"
           },
           "details": {
-            "$ref": "#/components/schemas/SharedTableRowComponent"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedTableRowComponent"
+            }
           },
           "price": {
             "$ref": "#/components/schemas/SharedPriceComponent"
@@ -29839,7 +29848,10 @@
                   "type": "string"
                 },
                 "details": {
-                  "$ref": "#/components/schemas/SharedTableRowComponent"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SharedTableRowComponent"
+                  }
                 },
                 "price": {
                   "$ref": "#/components/schemas/SharedPriceComponent"

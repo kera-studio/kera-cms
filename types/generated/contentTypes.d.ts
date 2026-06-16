@@ -1120,7 +1120,7 @@ export interface ApiGroupActivityLessonGroupActivityLesson
           localized: true;
         };
       }>;
-    details: Schema.Attribute.Component<'shared.table-row', false> &
+    details: Schema.Attribute.Component<'shared.table-row', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

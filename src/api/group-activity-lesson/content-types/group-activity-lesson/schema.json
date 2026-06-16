@@ -18,65 +18,65 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
     "slug": {
       "type": "uid",
-      "targetField": "title",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "targetField": "title"
     },
     "coverPhoto": {
       "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "multiple": false,
       "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      ]
     },
     "description": {
       "type": "text",
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
     "details": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.table-row",
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "shared.table-row",
+      "repeatable": true,
+      "required": true
     },
     "price": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.price",
-      "required": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "component": "shared.price",
+      "repeatable": false,
+      "required": true
     }
   }
 }
