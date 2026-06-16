@@ -12,6 +12,7 @@ export interface ActivityBase extends Struct.ComponentSchema {
     cover: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     gallery: Schema.Attribute.Relation<'oneToOne', 'api::gallery.gallery'>;
+    Lectors: Schema.Attribute.Relation<'oneToMany', 'api::employee.employee'>;
     membership: Schema.Attribute.Enumeration<
       ['none', 'by-depozit', 'by-reservation']
     > &

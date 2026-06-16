@@ -124,6 +124,7 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
     usps: 'Selling points',
     quote: 'Client quote',
     gallery: 'Gallery',
+    Lectors: 'Lectors',
   },
 };
 
