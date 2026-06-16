@@ -14,8 +14,16 @@ This repo is **Strapi 5.37** (TypeScript, factory pattern, pnpm). The user hands
 3. **Surface the design decisions and confirm with the user** (see "Decisions to confirm"). Map the constraints below before writing — several TS shapes don't translate 1:1.
 4. **Scaffold** components → collections → API boilerplate → lifecycle hooks.
 5. **Validate** (see "Validation").
-6. **Apply admin niceties** if requested (grouping + labels).
+6. **Always apply the full-width edit layout** to every new collection (and any new components) — see "Full-width edit layouts". This is a default, not opt-in: register the UID in the `src/index.ts` seed loop so every field renders one-per-row at size 12. Apply the *other* admin niceties (grouping prefixes, friendly labels) only if requested.
 7. Don't commit unless asked. This repo commits direct to `main`.
+
+## Field naming convention (enforce on every attribute)
+
+**Attribute keys must begin with a capital letter** (`Name`, `Surname`, `Role`, `Avatar`, `Bio`, `Lessons`…). This applies to every field on every collection and component you scaffold. The TS schema sketch usually uses lowercase camelCase keys — capitalize the first letter when you write the `schema.json`/component `attributes`. Keep the rest of the key as-is (`coverPhoto` → `CoverPhoto`, `internalDisplayName` → `InternalDisplayName`).
+
+- The key IS the API field name, so capitalization changes the REST/GraphQL payload keys too — that's intended and applies uniformly.
+- `info.singularName`/`pluralName`/`collectionName` and the `api::<name>.<name>` UID stay lowercase-kebab (Strapi requires it) — this rule is **only** about `attributes` keys.
+- If any map in `src/index.ts` (labels, readonly, main fields) references a field, use the capitalized key there too.
 
 ## File layout (match exactly)
 
@@ -107,8 +115,8 @@ async function seedAdminLabels(strapi) {
 - Default stored label = the raw attribute key; labels are re-applied every boot, so editor changes via "Configure the view" get overwritten. Tell the user to manage labels in `src/index.ts` (remove a field from the map to hand it to the admin).
 - See the full working maps in `src/index.ts`.
 
-### Full-width edit layouts (one field per row, no columns)
-The edit form arranges fields on a 12-column grid via `config.layouts.edit` — an array of rows, each row an array of `{ name, size }` (sizes sum to ≤ 12 per row). To make every field full width with no side-by-side columns, rebuild the layout as one field per row at `size: 12`. Do it in the same `src/index.ts` bootstrap, alongside labels:
+### Full-width edit layouts (one field per row, no columns) — DEFAULT, always apply
+Apply this to **every** new collection (and any new component), even when the user asks for nothing else. The edit form arranges fields on a 12-column grid via `config.layouts.edit` — an array of rows, each row an array of `{ name, size }` (sizes sum to ≤ 12 per row). To make every field full width with no side-by-side columns, rebuild the layout as one field per row at `size: 12`. Do it in the same `src/index.ts` bootstrap, alongside labels:
 
 ```ts
 function makeFullWidth(config): boolean {
@@ -122,6 +130,7 @@ function makeFullWidth(config): boolean {
 - `size: 12` is valid for **every** field type: `component`/`dynamiczone`/`json`/`richtext`/`blocks` are locked to 12 (`isResizable: false`), and all resizable types (string, text, number, boolean, enum, media, relation, uid…) allow up to 12. So no per-type checks are needed.
 - Flattening the *existing* layout (rather than enumerating attributes) preserves field order and automatically picks up any fields added later.
 - Apply to both content types and components; combine its changed-flag with the label one so a single `updateConfiguration` call persists both. Re-applied every boot.
+- **The seed loop only processes UIDs present in `CONTENT_TYPE_LABELS` / `COMPONENT_LABELS`.** A new collection that needs full width but *no* custom labels still has to be registered there — add it with an **empty label map**: `'api::employee.employee': {}`. `applyLabels` makes no changes, but `makeFullWidth` returns `true`, so the config is persisted. (Add a one-line comment saying "full-width only, no custom labels" so it doesn't look like an oversight.)
 - Verify: read `.tmp/data.db` `strapi_core_store_settings` and assert every `layouts.edit` row has length 1 and `size === 12`.
 
 ## Validation

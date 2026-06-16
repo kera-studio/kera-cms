@@ -71,6 +71,9 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     title: 'Title',
     slug: 'URL slug',
   },
+  // No custom labels — empty map still routes the type through the seed loop so
+  // its edit form gets the full-width (one-field-per-row) layout.
+  'api::employee.employee': {},
 };
 
 const COMPONENT_LABELS: Record<string, Record<string, string>> = {
