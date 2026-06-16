@@ -80,6 +80,14 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
   // No custom labels — empty map still routes the type through the seed loop so
   // its edit form gets the full-width (one-field-per-row) layout.
   'api::employee.employee': {},
+  'api::documentation.documentation': {
+    Title: 'Title',
+    Slug: 'URL slug',
+    ParentDocumentation: 'Parent',
+    Children: 'Children',
+    priority: 'Priority',
+    Content: 'Page content',
+  },
 };
 
 const COMPONENT_LABELS: Record<string, Record<string, string>> = {
@@ -164,6 +172,8 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
 const MAIN_FIELDS: Record<string, string> = {
   'api::premade-product.premade-product': 'internalDisplayName',
   'api::gallery.gallery': 'internalDisplayName',
+  // Tree relation pickers (Parent/Children) show the title, not the documentId.
+  'api::documentation.documentation': 'Title',
 };
 
 /**
@@ -187,6 +197,10 @@ const COMPONENT_MAIN_FIELDS: Record<string, string> = {
 const RELATION_MAIN_FIELDS: Record<string, Record<string, string>> = {
   'content.premade-products': { products: 'internalDisplayName' },
   'api::product.product': { premadeProducts: 'internalDisplayName' },
+  'api::documentation.documentation': {
+    ParentDocumentation: 'Title',
+    Children: 'Title',
+  },
 };
 
 /**

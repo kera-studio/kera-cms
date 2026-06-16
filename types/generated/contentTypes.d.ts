@@ -933,6 +933,87 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDocumentationDocumentation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'documentations';
+  info: {
+    description: 'Nested documentation article. Self-referential tree via ParentDocumentation.';
+    displayName: 'Documentation';
+    pluralName: 'documentations';
+    singularName: 'documentation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Children: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::documentation.documentation'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Content: Schema.Attribute.DynamicZone<
+      ['content.richtext', 'content.media-row', 'content.video']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::documentation.documentation'
+    >;
+    ParentDocumentation: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::documentation.documentation'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    priority: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    Slug: Schema.Attribute.UID<'Title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
   collectionName: 'employees';
   info: {
@@ -2660,6 +2741,7 @@ declare module '@strapi/strapi' {
       'api::course-redeem-code.course-redeem-code': ApiCourseRedeemCodeCourseRedeemCode;
       'api::course.course': ApiCourseCourse;
       'api::customer.customer': ApiCustomerCustomer;
+      'api::documentation.documentation': ApiDocumentationDocumentation;
       'api::employee.employee': ApiEmployeeEmployee;
       'api::faq-online-course.faq-online-course': ApiFaqOnlineCourseFaqOnlineCourse;
       'api::faq-product.faq-product': ApiFaqProductFaqProduct;

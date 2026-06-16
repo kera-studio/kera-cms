@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "documentations",
+  "info": {
+    "singularName": "documentation",
+    "pluralName": "documentations",
+    "displayName": "Documentation",
+    "description": "Nested documentation article. Self-referential tree via ParentDocumentation."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "targetField": "Title",
+      "required": true
+    },
+    "ParentDocumentation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::documentation.documentation",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "inversedBy": "Children"
+    },
+    "Children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::documentation.documentation",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "mappedBy": "ParentDocumentation"
+    },
+    "Content": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "content.richtext",
+        "content.media-row",
+        "content.video"
+      ]
+    },
+    "priority": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "default": 0
+    }
+  }
+}
