@@ -170,6 +170,19 @@ export interface SharedListItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedOpeningHoursInterval extends Struct.ComponentSchema {
+  collectionName: 'components_shared_opening_hours_intervals';
+  info: {
+    description: 'A single open period within a day (start/end time).';
+    displayName: 'Opening Hours Interval';
+    icon: 'clock';
+  };
+  attributes: {
+    EndHour: Schema.Attribute.Time & Schema.Attribute.Required;
+    StartHour: Schema.Attribute.Time & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedPrice extends Struct.ComponentSchema {
   collectionName: 'components_shared_prices';
   info: {
@@ -218,6 +231,58 @@ export interface SharedUsp extends Struct.ComponentSchema {
   };
 }
 
+export interface StudioAddress extends Struct.ComponentSchema {
+  collectionName: 'components_studio_addresses';
+  info: {
+    description: 'A physical address with optional GPS coordinates and a note.';
+    displayName: 'Address';
+    icon: 'pinMap';
+  };
+  attributes: {
+    City: Schema.Attribute.String;
+    FullAddress: Schema.Attribute.String;
+    Lat: Schema.Attribute.Decimal;
+    Lng: Schema.Attribute.Decimal;
+    Note: Schema.Attribute.Text;
+    PostalCode: Schema.Attribute.String;
+    Street: Schema.Attribute.String;
+  };
+}
+
+export interface StudioOpeningHours extends Struct.ComponentSchema {
+  collectionName: 'components_studio_opening_hours';
+  info: {
+    description: 'A weekly opening-hours schedule: per-day periods plus a summary text covering all days (e.g. "Mo-Su: 8:00-17:00").';
+    displayName: 'Opening Hours';
+    icon: 'clock';
+  };
+  attributes: {
+    AsText: Schema.Attribute.String;
+    Days: Schema.Attribute.Component<'studio.opening-hours-day', true>;
+  };
+}
+
+export interface StudioOpeningHoursDay extends Struct.ComponentSchema {
+  collectionName: 'components_studio_opening_hours_days';
+  info: {
+    description: 'Open periods for a single weekday (0 = Monday ... 6 = Sunday).';
+    displayName: 'Opening Hours Day';
+    icon: 'calendar';
+  };
+  attributes: {
+    Day: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 6;
+          min: 0;
+        },
+        number
+      >;
+    Times: Schema.Attribute.Component<'shared.opening-hours-interval', true>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -233,9 +298,13 @@ declare module '@strapi/strapi' {
       'content.video': ContentVideo;
       'shared.event-date': SharedEventDate;
       'shared.list-item': SharedListItem;
+      'shared.opening-hours-interval': SharedOpeningHoursInterval;
       'shared.price': SharedPrice;
       'shared.table-row': SharedTableRow;
       'shared.usp': SharedUsp;
+      'studio.address': StudioAddress;
+      'studio.opening-hours': StudioOpeningHours;
+      'studio.opening-hours-day': StudioOpeningHoursDay;
     }
   }
 }

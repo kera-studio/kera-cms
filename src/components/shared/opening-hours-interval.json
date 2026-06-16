@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_opening_hours_intervals",
+  "info": {
+    "displayName": "Opening Hours Interval",
+    "icon": "clock",
+    "description": "A single open period within a day (start/end time)."
+  },
+  "options": {},
+  "attributes": {
+    "StartHour": {
+      "type": "time",
+      "required": true
+    },
+    "EndHour": {
+      "type": "time",
+      "required": true
+    }
+  }
+}

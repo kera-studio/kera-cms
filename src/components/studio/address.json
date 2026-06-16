@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_studio_addresses",
+  "info": {
+    "displayName": "Address",
+    "icon": "pinMap",
+    "description": "A physical address with optional GPS coordinates and a note."
+  },
+  "options": {},
+  "attributes": {
+    "FullAddress": {
+      "type": "string"
+    },
+    "Street": {
+      "type": "string"
+    },
+    "City": {
+      "type": "string"
+    },
+    "PostalCode": {
+      "type": "string"
+    },
+    "Lat": {
+      "type": "decimal"
+    },
+    "Lng": {
+      "type": "decimal"
+    },
+    "Note": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_studio_opening_hours_days",
+  "info": {
+    "displayName": "Opening Hours Day",
+    "icon": "calendar",
+    "description": "Open periods for a single weekday (0 = Monday ... 6 = Sunday)."
+  },
+  "options": {},
+  "attributes": {
+    "Day": {
+      "type": "integer",
+      "required": true,
+      "min": 0,
+      "max": 6
+    },
+    "Times": {
+      "type": "component",
+      "component": "shared.opening-hours-interval",
+      "repeatable": true
+    }
+  }
+}

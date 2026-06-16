@@ -1755,14 +1755,59 @@ export interface ApiStudioStudio extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    Address: Schema.Attribute.Component<'studio.address', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    CustomerSupportOpeningHours: Schema.Attribute.Component<
+      'studio.opening-hours',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Employees: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::employee.employee'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Leader: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::studio.studio'>;
+    Order: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    StudioOpeningHours: Schema.Attribute.Component<
+      'studio.opening-hours',
+      false
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

@@ -34,6 +34,64 @@
           "localized": true
         }
       }
+    },
+    "Leader": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "Employees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::employee.employee",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "Address": {
+      "type": "component",
+      "component": "studio.address",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "StudioOpeningHours": {
+      "type": "component",
+      "component": "studio.opening-hours",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "CustomerSupportOpeningHours": {
+      "type": "component",
+      "component": "studio.opening-hours",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Order": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }

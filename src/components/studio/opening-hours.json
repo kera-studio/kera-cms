@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_studio_opening_hours",
+  "info": {
+    "displayName": "Opening Hours",
+    "icon": "clock",
+    "description": "A weekly opening-hours schedule: per-day periods plus a summary text covering all days (e.g. \"Mo-Su: 8:00-17:00\")."
+  },
+  "options": {},
+  "attributes": {
+    "Days": {
+      "type": "component",
+      "component": "studio.opening-hours-day",
+      "repeatable": true
+    },
+    "AsText": {
+      "type": "string"
+    }
+  }
+}

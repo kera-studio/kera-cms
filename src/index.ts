@@ -70,6 +70,12 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
   'api::studio.studio': {
     title: 'Title',
     slug: 'URL slug',
+    Leader: 'Studio leader',
+    Employees: 'Employees',
+    Address: 'Address',
+    StudioOpeningHours: 'Studio opening hours',
+    CustomerSupportOpeningHours: 'Customer support hours',
+    Order: 'Sort order',
   },
   // No custom labels — empty map still routes the type through the seed loop so
   // its edit form gets the full-width (one-field-per-row) layout.
@@ -114,6 +120,27 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
   'content.premade-products': {
     products: 'Products',
   },
+  'studio.address': {
+    FullAddress: 'Full address',
+    Street: 'Street',
+    City: 'City',
+    PostalCode: 'Postal code',
+    Lat: 'Latitude',
+    Lng: 'Longitude',
+    Note: 'Note',
+  },
+  'studio.opening-hours': {
+    Days: 'Per-day hours',
+    AsText: 'Summary text (all days, e.g. "Mo-Su: 8:00-17:00")',
+  },
+  'studio.opening-hours-day': {
+    Day: 'Weekday (0 = Mon ... 6 = Sun)',
+    Times: 'Open periods',
+  },
+  'shared.opening-hours-interval': {
+    StartHour: 'Opens at',
+    EndHour: 'Closes at',
+  },
   'activity.base': {
     cover: 'Cover image',
     description: 'Short description',
@@ -137,6 +164,16 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
 const MAIN_FIELDS: Record<string, string> = {
   'api::premade-product.premade-product': 'internalDisplayName',
   'api::gallery.gallery': 'internalDisplayName',
+};
+
+/**
+ * Component entry title (`mainField`): the field shown on each collapsed entry
+ * of a repeatable component. Without it the accordion header is blank. Only one
+ * field can be shown, so point it at the most identifying scalar (e.g. the
+ * weekday number on an opening-hours day).
+ */
+const COMPONENT_MAIN_FIELDS: Record<string, string> = {
+  'studio.opening-hours-day': 'Day',
 };
 
 /**
@@ -257,6 +294,7 @@ async function seedAdminConfig(strapi) {
     const config = await compService.findConfiguration(component);
     const changed = [
       applyLabels(config, labels),
+      applyMainField(config, COMPONENT_MAIN_FIELDS[uid]),
       applyRelationMainFields(config, RELATION_MAIN_FIELDS[uid] ?? {}),
       makeFullWidth(config),
     ].some(Boolean);
