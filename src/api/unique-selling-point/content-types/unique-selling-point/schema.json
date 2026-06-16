@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "unique_selling_points",
+  "info": {
+    "singularName": "unique-selling-point",
+    "pluralName": "unique-selling-points",
+    "displayName": "Unique Selling Points"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "claim": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    }
+  }
+}

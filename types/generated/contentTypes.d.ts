@@ -1765,6 +1765,52 @@ export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiUniqueSellingPointUniqueSellingPoint
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'unique_selling_points';
+  info: {
+    displayName: 'Unique Selling Points';
+    pluralName: 'unique-selling-points';
+    singularName: 'unique-selling-point';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    claim: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::unique-selling-point.unique-selling-point'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWorkshopActivityWorkshopActivity
   extends Struct.CollectionTypeSchema {
   collectionName: 'workshop_activities';
@@ -2467,6 +2513,7 @@ declare module '@strapi/strapi' {
       'api::product.product': ApiProductProduct;
       'api::selfservice-activity.selfservice-activity': ApiSelfserviceActivitySelfserviceActivity;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
+      'api::unique-selling-point.unique-selling-point': ApiUniqueSellingPointUniqueSellingPoint;
       'api::workshop-activity.workshop-activity': ApiWorkshopActivityWorkshopActivity;
       'api::workshop.workshop': ApiWorkshopWorkshop;
       'plugin::content-releases.release': PluginContentReleasesRelease;

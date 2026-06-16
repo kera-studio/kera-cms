@@ -45,11 +45,6 @@
         "by-reservation"
       ]
     },
-    "usps": {
-      "type": "component",
-      "component": "shared.usp",
-      "repeatable": true
-    },
     "quote": {
       "type": "relation",
       "relation": "oneToOne",
@@ -59,6 +54,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::gallery.gallery"
+    },
+    "unique_selling_points": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::unique-selling-point.unique-selling-point"
     }
   }
 }

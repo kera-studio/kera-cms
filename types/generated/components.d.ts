@@ -24,7 +24,10 @@ export interface ActivityBase extends Struct.ComponentSchema {
       'api::client-quote.client-quote'
     >;
     table: Schema.Attribute.Component<'shared.table-row', true>;
-    usps: Schema.Attribute.Component<'shared.usp', true>;
+    unique_selling_points: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::unique-selling-point.unique-selling-point'
+    >;
   };
 }
 
