@@ -7,10 +7,9 @@
   },
   "options": {},
   "attributes": {
-    "products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::premade-product.premade-product"
+    "showPremadeProducts": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

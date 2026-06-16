@@ -110,10 +110,8 @@ export interface ContentPremadeProducts extends Struct.ComponentSchema {
     icon: 'store';
   };
   attributes: {
-    products: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::premade-product.premade-product'
-    >;
+    showPremadeProducts: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
   };
 }
 
