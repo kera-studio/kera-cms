@@ -1,12 +1,12 @@
 /**
  * premade-product lifecycles
  *
- * Auto-generates `internalDisplayName` as `${product.title} – ${location}`.
- * The product relation arrives in different shapes depending on the caller
- * (raw id, connect/set arrays, or an object), so we normalise it first.
+ * Auto-generates `internalDisplayName` as `${product.title} – ${studio.title}`.
+ * Both relations arrive in different shapes depending on the caller
+ * (raw id, connect/set arrays, or an object), so we normalise them first.
  */
 
-function resolveProductId(relation): number | string | null {
+function resolveRelationId(relation): number | string | null {
   if (relation == null) return null;
   if (typeof relation === "number" || typeof relation === "string")
     return relation;
@@ -26,28 +26,35 @@ function resolveProductId(relation): number | string | null {
 async function setInternalDisplayName(event) {
   const { data, where } = event.params;
 
-  let productId = resolveProductId(data?.product);
-  let location = data?.location;
+  let productId = resolveRelationId(data?.product);
+  let studioId = resolveRelationId(data?.studio);
 
   // On update the admin only sends changed fields, so the unchanged half of the
-  // name (product OR location) is absent. Backfill it from the existing row so
+  // name (product OR studio) is absent. Backfill it from the existing row so
   // editing one field still rebuilds the full name instead of bailing out.
-  if ((!productId || !location) && where?.id != null) {
+  if ((!productId || !studioId) && where?.id != null) {
     const existing = await strapi.db
       .query("api::premade-product.premade-product")
-      .findOne({ where: { id: where.id }, populate: { product: true } });
+      .findOne({
+        where: { id: where.id },
+        populate: { product: true, studio: true },
+      });
     if (!productId) productId = existing?.product?.id ?? null;
-    if (!location) location = existing?.location ?? null;
+    if (!studioId) studioId = existing?.studio?.id ?? null;
   }
 
-  if (!productId || !location) return;
+  if (!productId || !studioId) return;
 
   const product = await strapi.db
     .query("api::product.product")
     .findOne({ where: { id: productId }, select: ["title"] });
+  const studio = await strapi.db
+    .query("api::studio.studio")
+    .findOne({ where: { id: studioId }, select: ["title"] });
 
   const title = product?.title ?? "";
-  data.internalDisplayName = [title, location].filter(Boolean).join(" – ");
+  const studioTitle = studio?.title ?? "";
+  data.internalDisplayName = [title, studioTitle].filter(Boolean).join(" – ");
 }
 
 export default {

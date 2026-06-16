@@ -33,14 +33,10 @@
       "default": 0,
       "min": 0
     },
-    "location": {
-      "type": "enumeration",
-      "required": true,
-      "enum": [
-        "brno-stankova",
-        "brno-kera-mini",
-        "praha-veletrzni"
-      ]
+    "studio": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::studio.studio"
     }
   }
 }

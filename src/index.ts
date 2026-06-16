@@ -26,7 +26,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     product: 'Product',
     price: 'Price',
     stockCount: 'Stock (units)',
-    location: 'Studio location',
+    studio: 'Studio',
   },
   'api::client-quote.client-quote': {
     name: 'Client name',
@@ -57,7 +57,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     base: 'Activity details',
     content: 'Page content',
     dates: 'Scheduled dates',
-    location: 'Studio location',
+    studio: 'Studio',
   },
   'api::selfservice-activity.selfservice-activity': {
     title: 'Title',
@@ -65,7 +65,11 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     base: 'Activity details',
     content: 'Page content',
     withPremadeProducts: 'Backed by premade products',
-    location: 'Studio location',
+    studio: 'Studio',
+  },
+  'api::studio.studio': {
+    title: 'Title',
+    slug: 'URL slug',
   },
 };
 
@@ -151,13 +155,13 @@ const RELATION_MAIN_FIELDS: Record<string, Record<string, string>> = {
  */
 const READONLY_FIELDS: Record<string, Record<string, string>> = {
   'api::premade-product.premade-product': {
-    internalDisplayName: 'Generated from product + location on save.',
+    internalDisplayName: 'Generated from product + studio on save.',
   },
   'api::workshop-activity.workshop-activity': {
-    slug: 'Generated from title + location on save.',
+    slug: 'Generated from title + studio on save.',
   },
   'api::selfservice-activity.selfservice-activity': {
-    slug: 'Generated from title + location on save.',
+    slug: 'Generated from title + studio on save.',
   },
 };
 

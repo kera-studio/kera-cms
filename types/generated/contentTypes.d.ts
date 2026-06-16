@@ -1496,10 +1496,6 @@ export interface ApiPremadeProductPremadeProduct
       'api::premade-product.premade-product'
     > &
       Schema.Attribute.Private;
-    location: Schema.Attribute.Enumeration<
-      ['brno-stankova', 'brno-kera-mini', 'praha-veletrzni']
-    > &
-      Schema.Attribute.Required;
     price: Schema.Attribute.Component<'shared.price', false> &
       Schema.Attribute.Required;
     product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
@@ -1513,6 +1509,7 @@ export interface ApiPremadeProductPremadeProduct
         number
       > &
       Schema.Attribute.DefaultTo<0>;
+    studio: Schema.Attribute.Relation<'manyToOne', 'api::studio.studio'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1625,20 +1622,17 @@ export interface ApiSelfserviceActivitySelfserviceActivity
       'oneToMany',
       'api::selfservice-activity.selfservice-activity'
     >;
-    location: Schema.Attribute.Enumeration<
-      ['brno-stankova', 'brno-kera-mini', 'praha-veletrzni']
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    studio: Schema.Attribute.Relation<'manyToOne', 'api::studio.studio'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     title: Schema.Attribute.String &
@@ -1659,6 +1653,49 @@ export interface ApiSelfserviceActivitySelfserviceActivity
         };
       }> &
       Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiStudioStudio extends Struct.CollectionTypeSchema {
+  collectionName: 'studios';
+  info: {
+    description: 'Physical studio location.';
+    displayName: 'Studios';
+    pluralName: 'studios';
+    singularName: 'studio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::studio.studio'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1863,20 +1900,17 @@ export interface ApiWorkshopActivityWorkshopActivity
       'oneToMany',
       'api::workshop-activity.workshop-activity'
     >;
-    location: Schema.Attribute.Enumeration<
-      ['brno-stankova', 'brno-kera-mini', 'praha-veletrzni']
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    studio: Schema.Attribute.Relation<'manyToOne', 'api::studio.studio'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     title: Schema.Attribute.String &
@@ -2512,6 +2546,7 @@ declare module '@strapi/strapi' {
       'api::premade-product.premade-product': ApiPremadeProductPremadeProduct;
       'api::product.product': ApiProductProduct;
       'api::selfservice-activity.selfservice-activity': ApiSelfserviceActivitySelfserviceActivity;
+      'api::studio.studio': ApiStudioStudio;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::unique-selling-point.unique-selling-point': ApiUniqueSellingPointUniqueSellingPoint;
       'api::workshop-activity.workshop-activity': ApiWorkshopActivityWorkshopActivity;
