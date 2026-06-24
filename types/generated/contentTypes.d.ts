@@ -1212,6 +1212,55 @@ export interface ApiFaqWorkshopFaqWorkshop extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    description: 'A reusable FAQ group: a title, URL slug, and a repeatable list of question/answer items.';
+    displayName: 'FAQ';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Faqs: Schema.Attribute.Component<'content.faq-item', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Identifier: Schema.Attribute.UID<'Title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
   collectionName: 'galleries';
   info: {
@@ -2745,6 +2794,7 @@ declare module '@strapi/strapi' {
       'api::faq-online-course.faq-online-course': ApiFaqOnlineCourseFaqOnlineCourse;
       'api::faq-product.faq-product': ApiFaqProductFaqProduct;
       'api::faq-workshop.faq-workshop': ApiFaqWorkshopFaqWorkshop;
+      'api::faq.faq': ApiFaqFaq;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::group-activity-lesson.group-activity-lesson': ApiGroupActivityLessonGroupActivityLesson;
       'api::group-activity.group-activity': ApiGroupActivityGroupActivity;

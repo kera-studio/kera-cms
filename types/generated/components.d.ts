@@ -93,6 +93,19 @@ export interface BasicTable extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_content_faq_items';
+  info: {
+    description: 'A single question/answer pair. The answer is rich text intended for paragraphs, bold, italic, links, ul and ol only.';
+    displayName: 'FAQ Item';
+    icon: 'question';
+  };
+  attributes: {
+    Answer: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ContentMediaRow extends Struct.ComponentSchema {
   collectionName: 'components_content_media_rows';
   info: {
@@ -292,6 +305,7 @@ declare module '@strapi/strapi' {
       'basic.faq-item': BasicFaqItem;
       'basic.image-row': BasicImageRow;
       'basic.table': BasicTable;
+      'content.faq-item': ContentFaqItem;
       'content.media-row': ContentMediaRow;
       'content.premade-products': ContentPremadeProducts;
       'content.richtext': ContentRichtext;

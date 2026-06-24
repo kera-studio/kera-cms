@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_faq_items",
+  "info": {
+    "displayName": "FAQ Item",
+    "icon": "question",
+    "description": "A single question/answer pair. The answer is rich text intended for paragraphs, bold, italic, links, ul and ol only."
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Answer": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

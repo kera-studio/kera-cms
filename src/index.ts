@@ -88,6 +88,11 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     priority: 'Priority',
     Content: 'Page content',
   },
+  'api::faq.faq': {
+    Title: 'Title',
+    Identifier: 'ID',
+    Faqs: 'Questions',
+  },
 };
 
 const COMPONENT_LABELS: Record<string, Record<string, string>> = {
@@ -149,6 +154,10 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
     StartHour: 'Opens at',
     EndHour: 'Closes at',
   },
+  'content.faq-item': {
+    Title: 'Question',
+    Answer: 'Answer',
+  },
   'activity.base': {
     cover: 'Cover image',
     description: 'Short description',
@@ -174,6 +183,7 @@ const MAIN_FIELDS: Record<string, string> = {
   'api::gallery.gallery': 'internalDisplayName',
   // Tree relation pickers (Parent/Children) show the title, not the documentId.
   'api::documentation.documentation': 'Title',
+  'api::faq.faq': 'Title',
 };
 
 /**
@@ -184,6 +194,8 @@ const MAIN_FIELDS: Record<string, string> = {
  */
 const COMPONENT_MAIN_FIELDS: Record<string, string> = {
   'studio.opening-hours-day': 'Day',
+  // Accordion header for each repeatable FAQ entry shows the question.
+  'content.faq-item': 'Title',
 };
 
 /**
