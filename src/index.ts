@@ -93,6 +93,15 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     Identifier: 'ID',
     Faqs: 'Questions',
   },
+  'api::project.project': {
+    Title: 'Title',
+    Slug: 'URL slug',
+    Cover: 'Cover image',
+    Description: 'Short description',
+    Content: 'Page content',
+    Table: 'Spec table',
+    Quote: 'Client quote',
+  },
 };
 
 const COMPONENT_LABELS: Record<string, Record<string, string>> = {
@@ -184,6 +193,8 @@ const MAIN_FIELDS: Record<string, string> = {
   // Tree relation pickers (Parent/Children) show the title, not the documentId.
   'api::documentation.documentation': 'Title',
   'api::faq.faq': 'Title',
+  // Quote relation pickers show the client name, not the documentId.
+  'api::client-quote.client-quote': 'name',
 };
 
 /**
@@ -213,6 +224,7 @@ const RELATION_MAIN_FIELDS: Record<string, Record<string, string>> = {
     ParentDocumentation: 'Title',
     Children: 'Title',
   },
+  'api::project.project': { Quote: 'name' },
 };
 
 /**

@@ -1787,6 +1787,89 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProjectProject extends Struct.CollectionTypeSchema {
+  collectionName: 'projects';
+  info: {
+    description: 'A project showcase page: cover, description, rich page content, a spec table and an optional client quote.';
+    displayName: 'Project';
+    pluralName: 'projects';
+    singularName: 'project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Content: Schema.Attribute.DynamicZone<
+      ['content.richtext', 'content.media-row', 'content.video']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Cover: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project.project'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Quote: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::client-quote.client-quote'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    Slug: Schema.Attribute.UID<'Title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Table: Schema.Attribute.Component<'shared.table-row', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSelfserviceActivitySelfserviceActivity
   extends Struct.CollectionTypeSchema {
   collectionName: 'selfservice_activities';
@@ -2804,6 +2887,7 @@ declare module '@strapi/strapi' {
       'api::place.place': ApiPlacePlace;
       'api::premade-product.premade-product': ApiPremadeProductPremadeProduct;
       'api::product.product': ApiProductProduct;
+      'api::project.project': ApiProjectProject;
       'api::selfservice-activity.selfservice-activity': ApiSelfserviceActivitySelfserviceActivity;
       'api::studio.studio': ApiStudioStudio;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
