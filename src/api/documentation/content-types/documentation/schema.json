@@ -77,7 +77,7 @@
           "localized": true
         }
       },
-      "required": true,
+      "required": false,
       "default": 0
     }
   }

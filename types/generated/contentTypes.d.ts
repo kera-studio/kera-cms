@@ -986,7 +986,6 @@ export interface ApiDocumentationDocumentation
         };
       }>;
     priority: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
