@@ -91,6 +91,12 @@
       "target": "api::article.article",
       "mappedBy": "article_author"
     },
+    "team_member_magazines": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::magazine.magazine",
+      "mappedBy": "author"
+    },
     "team_member_priority_on_about_page": {
       "type": "integer",
       "pluginOptions": {

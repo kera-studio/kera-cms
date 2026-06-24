@@ -504,8 +504,8 @@ export interface ApiAlertBarAlertBar extends Struct.CollectionTypeSchema {
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
-    description: '';
-    displayName: 'Articles';
+    description: 'Deprecated \u2014 superseded by the Magazine collection. Kept for existing data; do not create new entries.';
+    displayName: 'Deprecated \u2013 Articles';
     pluralName: 'articles';
     singularName: 'article';
   };
@@ -1445,6 +1445,159 @@ export interface ApiGroupActivityGroupActivity
   };
 }
 
+export interface ApiMagazineTagMagazineTag extends Struct.CollectionTypeSchema {
+  collectionName: 'magazine_tags';
+  info: {
+    description: 'Tags used to categorise Magazine entries.';
+    displayName: 'Magazine \u2013 Tags';
+    pluralName: 'magazine-tags';
+    singularName: 'magazine-tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::magazine-tag.magazine-tag'
+    >;
+    magazines: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::magazine.magazine'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMagazineMagazine extends Struct.CollectionTypeSchema {
+  collectionName: 'magazines';
+  info: {
+    description: 'Magazine entries: cover, perex, rich page content, a spec table, an optional event link and tags.';
+    displayName: 'Magazine';
+    pluralName: 'magazines';
+    singularName: 'magazine';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    author: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::team-member.team-member'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    content: Schema.Attribute.DynamicZone<
+      ['content.richtext', 'content.media-row', 'content.video']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    cover: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    eventUrl: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::magazine.magazine'
+    >;
+    perex: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    table: Schema.Attribute.Component<'shared.table-row', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    tags: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::magazine-tag.magazine-tag'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNotificationNotification
   extends Struct.CollectionTypeSchema {
   collectionName: 'notifications';
@@ -2072,6 +2225,10 @@ export interface ApiTeamMemberTeamMember extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    team_member_magazines: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::magazine.magazine'
+    >;
     team_member_name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -2881,6 +3038,8 @@ declare module '@strapi/strapi' {
       'api::gallery.gallery': ApiGalleryGallery;
       'api::group-activity-lesson.group-activity-lesson': ApiGroupActivityLessonGroupActivityLesson;
       'api::group-activity.group-activity': ApiGroupActivityGroupActivity;
+      'api::magazine-tag.magazine-tag': ApiMagazineTagMagazineTag;
+      'api::magazine.magazine': ApiMagazineMagazine;
       'api::notification.notification': ApiNotificationNotification;
       'api::online-course.online-course': ApiOnlineCourseOnlineCourse;
       'api::payment-info.payment-info': ApiPaymentInfoPaymentInfo;

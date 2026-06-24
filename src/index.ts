@@ -102,6 +102,22 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     Table: 'Spec table',
     Quote: 'Client quote',
   },
+  'api::magazine.magazine': {
+    title: 'Title',
+    slug: 'URL slug',
+    perex: 'Perex',
+    cover: 'Cover image',
+    author: 'Author',
+    content: 'Page content',
+    eventUrl: 'Event URL',
+    table: 'Spec table',
+    tags: 'Tags',
+  },
+  'api::magazine-tag.magazine-tag': {
+    title: 'Title',
+    slug: 'URL slug',
+    magazines: 'Magazine entries',
+  },
 };
 
 const COMPONENT_LABELS: Record<string, Record<string, string>> = {
@@ -195,6 +211,9 @@ const MAIN_FIELDS: Record<string, string> = {
   'api::faq.faq': 'Title',
   // Quote relation pickers show the client name, not the documentId.
   'api::client-quote.client-quote': 'name',
+  // Tag and author relation pickers show the title/name, not the documentId.
+  'api::magazine-tag.magazine-tag': 'title',
+  'api::magazine.magazine': 'title',
 };
 
 /**
@@ -225,6 +244,7 @@ const RELATION_MAIN_FIELDS: Record<string, Record<string, string>> = {
     Children: 'Title',
   },
   'api::project.project': { Quote: 'name' },
+  'api::magazine.magazine': { author: 'team_member_name', tags: 'title' },
 };
 
 /**

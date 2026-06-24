@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "magazine_tags",
+  "info": {
+    "singularName": "magazine-tag",
+    "pluralName": "magazine-tags",
+    "displayName": "Magazine – Tags",
+    "description": "Tags used to categorise Magazine entries."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "targetField": "title",
+      "required": true
+    },
+    "magazines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::magazine.magazine",
+      "mappedBy": "tags",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    }
+  }
+}

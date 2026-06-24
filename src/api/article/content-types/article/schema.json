@@ -4,8 +4,8 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Articles",
-    "description": ""
+    "displayName": "Deprecated – Articles",
+    "description": "Deprecated — superseded by the Magazine collection. Kept for existing data; do not create new entries."
   },
   "options": {
     "draftAndPublish": true
