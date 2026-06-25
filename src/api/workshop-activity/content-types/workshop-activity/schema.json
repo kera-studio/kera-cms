@@ -58,6 +58,20 @@
         "content.premade-products"
       ]
     },
+    "bookingMode": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "default": "calendar",
+      "enum": [
+        "calendar",
+        "inquiry"
+      ]
+    },
     "dates": {
       "type": "component",
       "pluginOptions": {

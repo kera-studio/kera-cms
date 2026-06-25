@@ -2369,6 +2369,14 @@ export interface ApiWorkshopActivityWorkshopActivity
           localized: true;
         };
       }>;
+    bookingMode: Schema.Attribute.Enumeration<['calendar', 'inquiry']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'calendar'>;
     content: Schema.Attribute.DynamicZone<
       [
         'content.richtext',

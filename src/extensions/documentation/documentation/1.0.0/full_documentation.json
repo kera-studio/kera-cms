@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-06-24T12:13:43.037Z"
+    "x-generation-date": "2026-06-25T07:43:15.899Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -57996,7 +57996,8 @@
           "data": {
             "required": [
               "title",
-              "base"
+              "base",
+              "bookingMode"
             ],
             "type": "object",
             "properties": {
@@ -58036,6 +58037,13 @@
                     "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
                   }
                 }
+              },
+              "bookingMode": {
+                "type": "string",
+                "enum": [
+                  "calendar",
+                  "inquiry"
+                ]
               },
               "dates": {
                 "type": "array",
@@ -58114,7 +58122,8 @@
         "type": "object",
         "required": [
           "title",
-          "base"
+          "base",
+          "bookingMode"
         ],
         "properties": {
           "id": {
@@ -58166,6 +58175,13 @@
                 "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
               }
             }
+          },
+          "bookingMode": {
+            "type": "string",
+            "enum": [
+              "calendar",
+              "inquiry"
+            ]
           },
           "dates": {
             "type": "array",
@@ -58425,6 +58441,13 @@
                       "content.premade-products": "#/components/schemas/ContentPremadeProductsComponent"
                     }
                   }
+                },
+                "bookingMode": {
+                  "type": "string",
+                  "enum": [
+                    "calendar",
+                    "inquiry"
+                  ]
                 },
                 "dates": {
                   "type": "array",
