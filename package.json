@@ -45,5 +45,15 @@
   "strapi": {
     "uuid": "d425a8d0-5849-427f-9e60-2c107e8ce472",
     "installId": "a2b28e2df5c4b2f0851e3487a202c4dd1d0214919502bf39b4e1777ddef2b29b"
+  },
+  "packageManager": "pnpm@10.27.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "better-sqlite3",
+      "core-js-pure",
+      "esbuild",
+      "sharp"
+    ]
   }
 }
