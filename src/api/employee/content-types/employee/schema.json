@@ -85,11 +85,6 @@
           "localized": true
         }
       }
-    },
-    "studio": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::studio.studio"
     }
   }
 }
