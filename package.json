@@ -14,7 +14,7 @@
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
     "transfer:pull": "source .env && pnpm strapi transfer --from $REMOTE_URL --from-token $TRANSFER_TOKEN",
-    "transfer:push": "source .env && pnpm strapi transfer --to $REMOTE_URL --to-token $TRANSFER_TOKEN"
+    "transfer:push": "source .env && pnpm strapi transfer --to $REMOTE_URL --to-token $TRANSFER_TOKEN --exclude files"
   },
   "dependencies": {
     "@avorati/strapi-provider-upload-minio": "^1.7.1",
