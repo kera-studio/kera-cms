@@ -1082,6 +1082,7 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    studio: Schema.Attribute.Relation<'oneToOne', 'api::studio.studio'>;
     Surname: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
