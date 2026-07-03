@@ -583,7 +583,9 @@ export interface ApiAuthTokenAuthToken extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    branch: Schema.Attribute.Enumeration<['brno-stankova', 'praha-veletrzni']> &
+    branch: Schema.Attribute.Enumeration<
+      ['brno-stankova', 'praha-veletrzni', 'kera-mini']
+    > &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -911,7 +913,9 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    branch: Schema.Attribute.Enumeration<['brno-stankova', 'praha-veletrzni']> &
+    branch: Schema.Attribute.Enumeration<
+      ['brno-stankova', 'praha-veletrzni', 'kera-mini']
+    > &
       Schema.Attribute.Required;
     course_ownerships: Schema.Attribute.Relation<
       'oneToMany',
@@ -1694,7 +1698,9 @@ export interface ApiPaymentInfoPaymentInfo extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    branch: Schema.Attribute.Enumeration<['brno-stankova', 'praha-veletrzni']> &
+    branch: Schema.Attribute.Enumeration<
+      ['brno-stankova', 'praha-veletrzni', 'kera-mini']
+    > &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2128,6 +2134,15 @@ export interface ApiStudioStudio extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
+    branch: Schema.Attribute.Enumeration<
+      ['brno-stankova', 'praha-veletrzni', 'kera-mini']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2164,13 +2179,6 @@ export interface ApiStudioStudio extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     StudioOpeningHours: Schema.Attribute.Component<
       'studio.opening-hours',
       false

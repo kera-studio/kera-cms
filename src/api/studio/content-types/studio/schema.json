@@ -25,13 +25,17 @@
         }
       }
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "title",
+    "branch": {
+      "type": "enumeration",
       "required": true,
+      "enum": [
+        "brno-stankova",
+        "praha-veletrzni",
+        "kera-mini"
+      ],
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       }
     },

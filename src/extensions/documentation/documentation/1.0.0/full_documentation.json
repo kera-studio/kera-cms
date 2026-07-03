@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-07-03T13:01:02.163Z"
+    "x-generation-date": "2026-07-03T13:25:41.555Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -21772,7 +21772,8 @@
                 "type": "string",
                 "enum": [
                   "brno-stankova",
-                  "praha-veletrzni"
+                  "praha-veletrzni",
+                  "kera-mini"
                 ]
               },
               "type": {
@@ -21870,7 +21871,8 @@
             "type": "string",
             "enum": [
               "brno-stankova",
-              "praha-veletrzni"
+              "praha-veletrzni",
+              "kera-mini"
             ]
           },
           "type": {
@@ -22302,7 +22304,8 @@
                   "type": "string",
                   "enum": [
                     "brno-stankova",
-                    "praha-veletrzni"
+                    "praha-veletrzni",
+                    "kera-mini"
                   ]
                 },
                 "type": {
@@ -26846,7 +26849,8 @@
                 "type": "string",
                 "enum": [
                   "brno-stankova",
-                  "praha-veletrzni"
+                  "praha-veletrzni",
+                  "kera-mini"
                 ]
               },
               "createdAt": {
@@ -27215,7 +27219,8 @@
                           "type": "string",
                           "enum": [
                             "brno-stankova",
-                            "praha-veletrzni"
+                            "praha-veletrzni",
+                            "kera-mini"
                           ]
                         },
                         "createdAt": {
@@ -28017,7 +28022,8 @@
                 "type": "string",
                 "enum": [
                   "brno-stankova",
-                  "praha-veletrzni"
+                  "praha-veletrzni",
+                  "kera-mini"
                 ]
               },
               "locale": {
@@ -28168,7 +28174,8 @@
                       "type": "string",
                       "enum": [
                         "brno-stankova",
-                        "praha-veletrzni"
+                        "praha-veletrzni",
+                        "kera-mini"
                       ]
                     },
                     "createdAt": {
@@ -28787,7 +28794,8 @@
             "type": "string",
             "enum": [
               "brno-stankova",
-              "praha-veletrzni"
+              "praha-veletrzni",
+              "kera-mini"
             ]
           },
           "createdAt": {
@@ -42150,7 +42158,8 @@
                       "type": "string",
                       "enum": [
                         "brno-stankova",
-                        "praha-veletrzni"
+                        "praha-veletrzni",
+                        "kera-mini"
                       ]
                     },
                     "createdAt": {
@@ -42876,7 +42885,8 @@
                 "type": "string",
                 "enum": [
                   "brno-stankova",
-                  "praha-veletrzni"
+                  "praha-veletrzni",
+                  "kera-mini"
                 ]
               },
               "url": {
@@ -42980,7 +42990,8 @@
             "type": "string",
             "enum": [
               "brno-stankova",
-              "praha-veletrzni"
+              "praha-veletrzni",
+              "kera-mini"
             ]
           },
           "url": {
@@ -43417,7 +43428,8 @@
                   "type": "string",
                   "enum": [
                     "brno-stankova",
-                    "praha-veletrzni"
+                    "praha-veletrzni",
+                    "kera-mini"
                   ]
                 },
                 "url": {
@@ -46961,8 +46973,13 @@
                         "title": {
                           "type": "string"
                         },
-                        "slug": {
-                          "type": "string"
+                        "branch": {
+                          "type": "string",
+                          "enum": [
+                            "brno-stankova",
+                            "praha-veletrzni",
+                            "kera-mini"
+                          ]
                         },
                         "Leader": {
                           "type": "object",
@@ -48992,8 +49009,13 @@
                     "title": {
                       "type": "string"
                     },
-                    "slug": {
-                      "type": "string"
+                    "branch": {
+                      "type": "string",
+                      "enum": [
+                        "brno-stankova",
+                        "praha-veletrzni",
+                        "kera-mini"
+                      ]
                     },
                     "Leader": {
                       "type": "object",
@@ -51231,8 +51253,13 @@
               "title": {
                 "type": "string"
               },
-              "slug": {
-                "type": "string"
+              "branch": {
+                "type": "string",
+                "enum": [
+                  "brno-stankova",
+                  "praha-veletrzni",
+                  "kera-mini"
+                ]
               },
               "Leader": {
                 "type": "object",
@@ -51583,15 +51610,20 @@
           "data": {
             "required": [
               "title",
-              "slug"
+              "branch"
             ],
             "type": "object",
             "properties": {
               "title": {
                 "type": "string"
               },
-              "slug": {
-                "type": "string"
+              "branch": {
+                "type": "string",
+                "enum": [
+                  "brno-stankova",
+                  "praha-veletrzni",
+                  "kera-mini"
+                ]
               },
               "Leader": {
                 "oneOf": [
@@ -51690,7 +51722,7 @@
         "type": "object",
         "required": [
           "title",
-          "slug"
+          "branch"
         ],
         "properties": {
           "id": {
@@ -51709,8 +51741,13 @@
           "title": {
             "type": "string"
           },
-          "slug": {
-            "type": "string"
+          "branch": {
+            "type": "string",
+            "enum": [
+              "brno-stankova",
+              "praha-veletrzni",
+              "kera-mini"
+            ]
           },
           "Leader": {
             "type": "object",
@@ -52738,8 +52775,13 @@
                 "title": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "string"
+                "branch": {
+                  "type": "string",
+                  "enum": [
+                    "brno-stankova",
+                    "praha-veletrzni",
+                    "kera-mini"
+                  ]
                 },
                 "Leader": {
                   "type": "object",
@@ -58231,8 +58273,13 @@
               "title": {
                 "type": "string"
               },
-              "slug": {
-                "type": "string"
+              "branch": {
+                "type": "string",
+                "enum": [
+                  "brno-stankova",
+                  "praha-veletrzni",
+                  "kera-mini"
+                ]
               },
               "Leader": {
                 "type": "object",

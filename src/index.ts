@@ -70,7 +70,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
   },
   "api::studio.studio": {
     title: "Title",
-    slug: "URL slug",
+    branch: "Studio branch",
     Leader: "Studio leader",
     Employees: "Employees",
     Address: "Address",

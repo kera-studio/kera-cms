@@ -34,7 +34,8 @@
       "required": true,
       "enum": [
         "brno-stankova",
-        "praha-veletrzni"
+        "praha-veletrzni",
+        "kera-mini"
       ]
     }
   }
