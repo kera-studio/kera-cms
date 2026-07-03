@@ -11,9 +11,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "entity_id": {
+    "email": {
       "type": "string",
       "required": true
+    },
+    "branch": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "brno-stankova",
+        "praha-veletrzni"
+      ]
     },
     "type": {
       "type": "enumeration",

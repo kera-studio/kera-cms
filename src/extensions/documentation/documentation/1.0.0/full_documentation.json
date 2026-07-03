@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-06-30T06:04:25.999Z"
+    "x-generation-date": "2026-07-03T13:01:02.163Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -21758,14 +21758,22 @@
         "properties": {
           "data": {
             "required": [
-              "entity_id",
+              "email",
+              "branch",
               "type",
               "token"
             ],
             "type": "object",
             "properties": {
-              "entity_id": {
+              "email": {
                 "type": "string"
+              },
+              "branch": {
+                "type": "string",
+                "enum": [
+                  "brno-stankova",
+                  "praha-veletrzni"
+                ]
               },
               "type": {
                 "type": "string",
@@ -21836,7 +21844,8 @@
       "AuthToken": {
         "type": "object",
         "required": [
-          "entity_id",
+          "email",
+          "branch",
           "type",
           "token"
         ],
@@ -21854,8 +21863,15 @@
           "documentId": {
             "type": "string"
           },
-          "entity_id": {
+          "email": {
             "type": "string"
+          },
+          "branch": {
+            "type": "string",
+            "enum": [
+              "brno-stankova",
+              "praha-veletrzni"
+            ]
           },
           "type": {
             "type": "string",
@@ -22279,8 +22295,15 @@
                 "documentId": {
                   "type": "string"
                 },
-                "entity_id": {
+                "email": {
                   "type": "string"
+                },
+                "branch": {
+                  "type": "string",
+                  "enum": [
+                    "brno-stankova",
+                    "praha-veletrzni"
+                  ]
                 },
                 "type": {
                   "type": "string",
@@ -26822,8 +26845,8 @@
               "branch": {
                 "type": "string",
                 "enum": [
-                  "BRNO",
-                  "PRAHA"
+                  "brno-stankova",
+                  "praha-veletrzni"
                 ]
               },
               "createdAt": {
@@ -27191,8 +27214,8 @@
                         "branch": {
                           "type": "string",
                           "enum": [
-                            "BRNO",
-                            "PRAHA"
+                            "brno-stankova",
+                            "praha-veletrzni"
                           ]
                         },
                         "createdAt": {
@@ -27993,8 +28016,8 @@
               "branch": {
                 "type": "string",
                 "enum": [
-                  "BRNO",
-                  "PRAHA"
+                  "brno-stankova",
+                  "praha-veletrzni"
                 ]
               },
               "locale": {
@@ -28144,8 +28167,8 @@
                     "branch": {
                       "type": "string",
                       "enum": [
-                        "BRNO",
-                        "PRAHA"
+                        "brno-stankova",
+                        "praha-veletrzni"
                       ]
                     },
                     "createdAt": {
@@ -28763,8 +28786,8 @@
           "branch": {
             "type": "string",
             "enum": [
-              "BRNO",
-              "PRAHA"
+              "brno-stankova",
+              "praha-veletrzni"
             ]
           },
           "createdAt": {
@@ -42126,8 +42149,8 @@
                     "branch": {
                       "type": "string",
                       "enum": [
-                        "BRNO",
-                        "PRAHA"
+                        "brno-stankova",
+                        "praha-veletrzni"
                       ]
                     },
                     "createdAt": {
@@ -42852,8 +42875,8 @@
               "branch": {
                 "type": "string",
                 "enum": [
-                  "BRNO",
-                  "PRAHA"
+                  "brno-stankova",
+                  "praha-veletrzni"
                 ]
               },
               "url": {
@@ -42956,8 +42979,8 @@
           "branch": {
             "type": "string",
             "enum": [
-              "BRNO",
-              "PRAHA"
+              "brno-stankova",
+              "praha-veletrzni"
             ]
           },
           "url": {
@@ -43393,8 +43416,8 @@
                 "branch": {
                   "type": "string",
                   "enum": [
-                    "BRNO",
-                    "PRAHA"
+                    "brno-stankova",
+                    "praha-veletrzni"
                   ]
                 },
                 "url": {

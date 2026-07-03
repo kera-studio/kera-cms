@@ -583,10 +583,12 @@ export interface ApiAuthTokenAuthToken extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    branch: Schema.Attribute.Enumeration<['brno-stankova', 'praha-veletrzni']> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    entity_id: Schema.Attribute.String & Schema.Attribute.Required;
+    email: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -909,7 +911,7 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    branch: Schema.Attribute.Enumeration<['BRNO', 'PRAHA']> &
+    branch: Schema.Attribute.Enumeration<['brno-stankova', 'praha-veletrzni']> &
       Schema.Attribute.Required;
     course_ownerships: Schema.Attribute.Relation<
       'oneToMany',
@@ -1692,7 +1694,7 @@ export interface ApiPaymentInfoPaymentInfo extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    branch: Schema.Attribute.Enumeration<['BRNO', 'PRAHA']> &
+    branch: Schema.Attribute.Enumeration<['brno-stankova', 'praha-veletrzni']> &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
