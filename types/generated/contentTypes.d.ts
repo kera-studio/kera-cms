@@ -1302,80 +1302,6 @@ export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGroupActivityLessonGroupActivityLesson
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'group_activity_lessons';
-  info: {
-    description: 'A single lesson belonging to a group activity.';
-    displayName: 'Activity \u2013 Group Lesson';
-    pluralName: 'group-activity-lessons';
-    singularName: 'group-activity-lesson';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    coverPhoto: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    details: Schema.Attribute.Component<'shared.table-row', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::group-activity-lesson.group-activity-lesson'
-    >;
-    price: Schema.Attribute.Component<'shared.price', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiGroupActivityGroupActivity
   extends Struct.CollectionTypeSchema {
   collectionName: 'group_activities';
@@ -1417,15 +1343,6 @@ export interface ApiGroupActivityGroupActivity
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    groupActivityLessons: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::group-activity-lesson.group-activity-lesson'
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -3054,7 +2971,6 @@ declare module '@strapi/strapi' {
       'api::faq-workshop.faq-workshop': ApiFaqWorkshopFaqWorkshop;
       'api::faq.faq': ApiFaqFaq;
       'api::gallery.gallery': ApiGalleryGallery;
-      'api::group-activity-lesson.group-activity-lesson': ApiGroupActivityLessonGroupActivityLesson;
       'api::group-activity.group-activity': ApiGroupActivityGroupActivity;
       'api::magazine-tag.magazine-tag': ApiMagazineTagMagazineTag;
       'api::magazine.magazine': ApiMagazineMagazine;

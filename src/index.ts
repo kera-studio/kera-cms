@@ -36,20 +36,11 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     internalDisplayName: "Internal label",
     images: "Images",
   },
-  "api::group-activity-lesson.group-activity-lesson": {
-    title: "Title",
-    slug: "URL slug",
-    coverPhoto: "Cover photo",
-    description: "Description",
-    details: "Details",
-    price: "Price",
-  },
   "api::group-activity.group-activity": {
     title: "Title",
     slug: "URL slug",
     base: "Activity details",
     content: "Page content",
-    groupActivityLessons: "Lessons",
   },
   "api::workshop-activity.workshop-activity": {
     title: "Title",
