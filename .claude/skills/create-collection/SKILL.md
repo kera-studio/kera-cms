@@ -14,16 +14,19 @@ This repo is **Strapi 5.37** (TypeScript, factory pattern, pnpm). The user hands
 3. **Surface the design decisions and confirm with the user** (see "Decisions to confirm"). Map the constraints below before writing — several TS shapes don't translate 1:1.
 4. **Scaffold** components → collections → API boilerplate → lifecycle hooks.
 5. **Validate** (see "Validation").
-6. **Always apply the full-width edit layout** to every new collection (and any new components) — see "Full-width edit layouts". This is a default, not opt-in: register the UID in the `src/index.ts` seed loop so every field renders one-per-row at size 12. Apply the *other* admin niceties (grouping prefixes, friendly labels) only if requested.
+6. **Always apply the full-width edit layout AND friendly field labels** to every new collection (and any new components) — see "Full-width edit layouts" and "Friendly field labels". These are defaults, not opt-in: register the UID in the `src/index.ts` seed loop so every field renders one-per-row at size 12 and gets a readable display name (see naming convention above — display name ≠ API key). Apply the *other* admin niceties (sidebar grouping prefixes) only if requested.
 7. Don't commit unless asked. This repo commits direct to `main`.
 
 ## Field naming convention (enforce on every attribute)
 
-**Attribute keys must begin with a capital letter** (`Name`, `Surname`, `Role`, `Avatar`, `Bio`, `Lessons`…). This applies to every field on every collection and component you scaffold. The TS schema sketch usually uses lowercase camelCase keys — capitalize the first letter when you write the `schema.json`/component `attributes`. Keep the rest of the key as-is (`coverPhoto` → `CoverPhoto`, `internalDisplayName` → `InternalDisplayName`).
+**Attribute keys must be camelCase** (`name`, `surname`, `coverPhoto`, `internalDisplayName`, `openingHours`…). This applies to every field on every collection and component you scaffold. Convert whatever the TS schema sketch uses (`PostalCode` → `postalCode`, `cover_photo` → `coverPhoto`). Never PascalCase, never snake_case.
 
-- The key IS the API field name, so capitalization changes the REST/GraphQL payload keys too — that's intended and applies uniformly.
-- `info.singularName`/`pluralName`/`collectionName` and the `api::<name>.<name>` UID stay lowercase-kebab (Strapi requires it) — this rule is **only** about `attributes` keys.
-- If any map in `src/index.ts` (labels, readonly, main fields) references a field, use the capitalized key there too.
+**Every field also gets a nice readable display name** via the admin label seed in `src/index.ts` (see "Friendly field labels" — this is a default, not opt-in). The display name is human prose, NOT the API key: `coverPhoto` → `"Cover photo"`, `internalDisplayName` → `"Internal display name"`. Display name ≠ API key, always.
+
+- The key IS the API field name (REST/GraphQL payload key) — camelCase applies uniformly to the API.
+- `info.singularName`/`pluralName` and the `api::<name>.<name>` UID stay lowercase-kebab (Strapi requires it) — this rule is **only** about `attributes` keys.
+- If any map in `src/index.ts` (labels, readonly, main fields) references a field, use the camelCase key there too.
+- Existing collections contain legacy PascalCase/snake_case keys — don't mimic them; new fields are always camelCase. Don't rename existing keys unless explicitly asked (it's an API + DB-column breaking change).
 
 ## File layout (match exactly)
 
@@ -84,13 +87,13 @@ export default {
 ```
 - **From a relation (e.g. `product.title – location`):** resolve the relation id (it arrives as a raw id, an array, or `{connect:[...]}`/`{set:[...]}`), `strapi.db.query(uid).findOne(...)`, build the string. On update the relation may be absent → return early and leave the name unchanged. See `src/api/premade-product/content-types/premade-product/lifecycles.ts` for the `resolveProductId` helper.
 
-## Admin niceties (only if asked)
+## Admin niceties
 
-### Group collections in the sidebar
+### Group collections in the sidebar (only if asked)
 The sidebar is alphabetical with no folders. Prefix `info.displayName` to cluster: `"Activity – Group"`, `"Activity – Workshop"`, `"Shop – Product"`, `"Content – Gallery"`. Use the en-dash `–` to match the repo's existing `"Deprecated –"` convention. This changes display only — UIDs/routes/tables are untouched.
 
-### Friendly field labels
-`schema.json` has **no per-field label**; the admin derives labels from the attribute key. To set nicer labels without changing API keys, seed the Content-Manager config in `src/index.ts` `bootstrap`:
+### Friendly field labels — DEFAULT, always apply
+`schema.json` has **no per-field label**; the admin derives labels from the attribute key, and a raw camelCase key makes an ugly label. So **every field on every new collection/component gets a readable label** (`coverPhoto` → `"Cover photo"`) seeded via the Content-Manager config in `src/index.ts` `bootstrap`:
 
 ```ts
 async function seedAdminLabels(strapi) {
@@ -130,7 +133,7 @@ function makeFullWidth(config): boolean {
 - `size: 12` is valid for **every** field type: `component`/`dynamiczone`/`json`/`richtext`/`blocks` are locked to 12 (`isResizable: false`), and all resizable types (string, text, number, boolean, enum, media, relation, uid…) allow up to 12. So no per-type checks are needed.
 - Flattening the *existing* layout (rather than enumerating attributes) preserves field order and automatically picks up any fields added later.
 - Apply to both content types and components; combine its changed-flag with the label one so a single `updateConfiguration` call persists both. Re-applied every boot.
-- **The seed loop only processes UIDs present in `CONTENT_TYPE_LABELS` / `COMPONENT_LABELS`.** A new collection that needs full width but *no* custom labels still has to be registered there — add it with an **empty label map**: `'api::employee.employee': {}`. `applyLabels` makes no changes, but `makeFullWidth` returns `true`, so the config is persisted. (Add a one-line comment saying "full-width only, no custom labels" so it doesn't look like an oversight.)
+- **The seed loop only processes UIDs present in `CONTENT_TYPE_LABELS` / `COMPONENT_LABELS`.** Every new collection/component is registered there anyway (labels are a default — see "Friendly field labels"), so full-width comes along in the same `updateConfiguration` call.
 - Verify: read `.tmp/data.db` `strapi_core_store_settings` and assert every `layouts.edit` row has length 1 and `size === 12`.
 
 ## Validation
@@ -148,4 +151,4 @@ Run after scaffolding:
 - **Auto-generation** of display names: which fields, derived from what. Fields with no source (e.g. a bare gallery) stay manual.
 - **Relation cardinalities** (which side owns, reuse vs ownership).
 - **i18n scope** + draft/publish.
-- **Field-name niceties**: rename keys (changes API) vs admin labels only (DB seed, keeps API).
+- **Display-name wording** only if ambiguous — keys are always camelCase and labels are always seeded (not up for debate); confirm just the label text when the field name doesn't read well as prose.
