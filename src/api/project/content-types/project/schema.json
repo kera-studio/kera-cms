@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -25,17 +25,17 @@
       },
       "required": true
     },
-    "Slug": {
+    "slug": {
       "type": "uid",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "targetField": "Title",
+      "targetField": "title",
       "required": true
     },
-    "Cover": {
+    "cover": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -48,7 +48,7 @@
         }
       }
     },
-    "Description": {
+    "description": {
       "type": "text",
       "required": true,
       "pluginOptions": {
@@ -57,7 +57,7 @@
         }
       }
     },
-    "Content": {
+    "content": {
       "type": "dynamiczone",
       "pluginOptions": {
         "i18n": {
@@ -70,7 +70,7 @@
         "content.video"
       ]
     },
-    "Table": {
+    "table": {
       "type": "component",
       "component": "shared.table-row",
       "repeatable": true,
@@ -80,7 +80,7 @@
         }
       }
     },
-    "Quote": {
+    "quote": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::client-quote.client-quote",

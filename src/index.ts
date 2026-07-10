@@ -71,37 +71,37 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
   "api::studio.studio": {
     title: "Title",
     branch: "Studio branch",
-    Leader: "Studio leader",
-    Employees: "Employees",
-    Address: "Address",
-    StudioOpeningHours: "Studio opening hours",
-    CustomerSupportOpeningHours: "Customer support hours",
-    Order: "Sort order",
+    leader: "Studio leader",
+    employees: "Employees",
+    address: "Address",
+    studioOpeningHours: "Studio opening hours",
+    customerSupportOpeningHours: "Customer support hours",
+    order: "Sort order",
   },
   // No custom labels — empty map still routes the type through the seed loop so
   // its edit form gets the full-width (one-field-per-row) layout.
   "api::employee.employee": {},
   "api::documentation.documentation": {
-    Title: "Title",
-    Slug: "URL slug",
-    ParentDocumentation: "Parent",
-    Children: "Children",
+    title: "Title",
+    slug: "URL slug",
+    parentDocumentation: "Parent",
+    children: "Children",
     priority: "Priority",
-    Content: "Page content",
+    content: "Page content",
   },
   "api::faq.faq": {
-    Title: "Title",
-    Identifier: "ID",
-    Faqs: "Questions",
+    title: "Title",
+    identifier: "ID",
+    faqs: "Questions",
   },
   "api::project.project": {
-    Title: "Title",
-    Slug: "URL slug",
-    Cover: "Cover image",
-    Description: "Short description",
-    Content: "Page content",
-    Table: "Spec table",
-    Quote: "Client quote",
+    title: "Title",
+    slug: "URL slug",
+    cover: "Cover image",
+    description: "Short description",
+    content: "Page content",
+    table: "Spec table",
+    quote: "Client quote",
   },
   "api::magazine.magazine": {
     title: "Title",
@@ -160,29 +160,29 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
     products: "Products",
   },
   "studio.address": {
-    FullAddress: "Full address",
-    Street: "Street",
-    City: "City",
-    PostalCode: "Postal code",
-    Lat: "Latitude",
-    Lng: "Longitude",
-    Note: "Note",
+    fullAddress: "Full address",
+    street: "Street",
+    city: "City",
+    postalCode: "Postal code",
+    lat: "Latitude",
+    lng: "Longitude",
+    note: "Note",
   },
   "studio.opening-hours": {
-    Days: "Per-day hours",
-    AsText: 'Summary text (all days, e.g. "Mo-Su: 8:00-17:00")',
+    days: "Per-day hours",
+    asText: 'Summary text (all days, e.g. "Mo-Su: 8:00-17:00")',
   },
   "studio.opening-hours-day": {
-    Day: "Weekday (0 = Mon ... 6 = Sun)",
-    Times: "Open periods",
+    day: "Weekday (0 = Mon ... 6 = Sun)",
+    times: "Open periods",
   },
   "shared.opening-hours-interval": {
-    StartHour: "Opens at",
-    EndHour: "Closes at",
+    startHour: "Opens at",
+    endHour: "Closes at",
   },
   "content.faq-item": {
-    Title: "Question",
-    Answer: "Answer",
+    title: "Question",
+    answer: "Answer",
   },
   "activity.base": {
     cover: "Cover image",
@@ -194,7 +194,7 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
     usps: "Selling points",
     quote: "Client quote",
     gallery: "Gallery",
-    Lectors: "Lectors",
+    lectors: "Lectors",
   },
 };
 
@@ -208,8 +208,8 @@ const MAIN_FIELDS: Record<string, string> = {
   "api::premade-product.premade-product": "internalDisplayName",
   "api::gallery.gallery": "internalDisplayName",
   // Tree relation pickers (Parent/Children) show the title, not the documentId.
-  "api::documentation.documentation": "Title",
-  "api::faq.faq": "Title",
+  "api::documentation.documentation": "title",
+  "api::faq.faq": "title",
   // Quote relation pickers show the client name, not the documentId.
   "api::client-quote.client-quote": "name",
   // Tag and author relation pickers show the title/name, not the documentId.
@@ -226,9 +226,9 @@ const MAIN_FIELDS: Record<string, string> = {
  * weekday number on an opening-hours day).
  */
 const COMPONENT_MAIN_FIELDS: Record<string, string> = {
-  "studio.opening-hours-day": "Day",
+  "studio.opening-hours-day": "day",
   // Accordion header for each repeatable FAQ entry shows the question.
-  "content.faq-item": "Title",
+  "content.faq-item": "title",
 };
 
 /**
@@ -243,10 +243,10 @@ const RELATION_MAIN_FIELDS: Record<string, Record<string, string>> = {
   "content.premade-products": { products: "internalDisplayName" },
   "api::product.product": { premadeProducts: "internalDisplayName" },
   "api::documentation.documentation": {
-    ParentDocumentation: "Title",
-    Children: "Title",
+    parentDocumentation: "title",
+    children: "title",
   },
-  "api::project.project": { Quote: "name" },
+  "api::project.project": { quote: "name" },
   "api::magazine.magazine": { author: "team_member_name", tags: "title" },
   "api::group-activity-occasion.group-activity-occasion": {
     groupActivities: "title",

@@ -7,12 +7,12 @@
   },
   "options": {},
   "attributes": {
-    "Days": {
+    "days": {
       "type": "component",
       "component": "studio.opening-hours-day",
       "repeatable": true
     },
-    "AsText": {
+    "asText": {
       "type": "string"
     }
   }

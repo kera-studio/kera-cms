@@ -12,7 +12,7 @@ export interface ActivityBase extends Struct.ComponentSchema {
     cover: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     gallery: Schema.Attribute.Relation<'oneToOne', 'api::gallery.gallery'>;
-    Lectors: Schema.Attribute.Relation<'oneToMany', 'api::employee.employee'>;
+    lectors: Schema.Attribute.Relation<'oneToMany', 'api::employee.employee'>;
     membership: Schema.Attribute.Enumeration<
       ['none', 'by-depozit', 'by-reservation']
     > &
@@ -101,8 +101,8 @@ export interface ContentFaqItem extends Struct.ComponentSchema {
     icon: 'question';
   };
   attributes: {
-    Answer: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    answer: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -191,8 +191,8 @@ export interface SharedOpeningHoursInterval extends Struct.ComponentSchema {
     icon: 'clock';
   };
   attributes: {
-    EndHour: Schema.Attribute.Time & Schema.Attribute.Required;
-    StartHour: Schema.Attribute.Time & Schema.Attribute.Required;
+    endHour: Schema.Attribute.Time & Schema.Attribute.Required;
+    startHour: Schema.Attribute.Time & Schema.Attribute.Required;
   };
 }
 
@@ -252,13 +252,13 @@ export interface StudioAddress extends Struct.ComponentSchema {
     icon: 'pinMap';
   };
   attributes: {
-    City: Schema.Attribute.String;
-    FullAddress: Schema.Attribute.String;
-    Lat: Schema.Attribute.Decimal;
-    Lng: Schema.Attribute.Decimal;
-    Note: Schema.Attribute.Text;
-    PostalCode: Schema.Attribute.String;
-    Street: Schema.Attribute.String;
+    city: Schema.Attribute.String;
+    fullAddress: Schema.Attribute.String;
+    lat: Schema.Attribute.Decimal;
+    lng: Schema.Attribute.Decimal;
+    note: Schema.Attribute.Text;
+    postalCode: Schema.Attribute.String;
+    street: Schema.Attribute.String;
   };
 }
 
@@ -270,8 +270,8 @@ export interface StudioOpeningHours extends Struct.ComponentSchema {
     icon: 'clock';
   };
   attributes: {
-    AsText: Schema.Attribute.String;
-    Days: Schema.Attribute.Component<'studio.opening-hours-day', true>;
+    asText: Schema.Attribute.String;
+    days: Schema.Attribute.Component<'studio.opening-hours-day', true>;
   };
 }
 
@@ -283,7 +283,7 @@ export interface StudioOpeningHoursDay extends Struct.ComponentSchema {
     icon: 'calendar';
   };
   attributes: {
-    Day: Schema.Attribute.Integer &
+    day: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
@@ -292,7 +292,7 @@ export interface StudioOpeningHoursDay extends Struct.ComponentSchema {
         },
         number
       >;
-    Times: Schema.Attribute.Component<'shared.opening-hours-interval', true>;
+    times: Schema.Attribute.Component<'shared.opening-hours-interval', true>;
   };
 }
 

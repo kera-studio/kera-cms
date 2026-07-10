@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -25,7 +25,7 @@
       },
       "required": true
     },
-    "Surname": {
+    "surname": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -34,7 +34,7 @@
       },
       "required": true
     },
-    "Role": {
+    "role": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -42,7 +42,7 @@
         }
       }
     },
-    "Email": {
+    "email": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -50,7 +50,7 @@
         }
       }
     },
-    "Phone": {
+    "phone": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -58,7 +58,7 @@
         }
       }
     },
-    "Avatar": {
+    "avatar": {
       "type": "media",
       "pluginOptions": {
         "i18n": {
@@ -70,7 +70,7 @@
         "images"
       ]
     },
-    "Bio": {
+    "bio": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -78,7 +78,7 @@
         }
       }
     },
-    "Lessons": {
+    "lessons": {
       "type": "string",
       "pluginOptions": {
         "i18n": {

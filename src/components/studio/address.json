@@ -7,25 +7,25 @@
   },
   "options": {},
   "attributes": {
-    "FullAddress": {
+    "fullAddress": {
       "type": "string"
     },
-    "Street": {
+    "street": {
       "type": "string"
     },
-    "City": {
+    "city": {
       "type": "string"
     },
-    "PostalCode": {
+    "postalCode": {
       "type": "string"
     },
-    "Lat": {
+    "lat": {
       "type": "decimal"
     },
-    "Lng": {
+    "lng": {
       "type": "decimal"
     },
-    "Note": {
+    "note": {
       "type": "text"
     }
   }

@@ -60,7 +60,7 @@
       "relation": "oneToMany",
       "target": "api::unique-selling-point.unique-selling-point"
     },
-    "Lectors": {
+    "lectors": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::employee.employee"

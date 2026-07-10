@@ -39,7 +39,7 @@
         }
       }
     },
-    "Leader": {
+    "leader": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::employee.employee",
@@ -49,7 +49,7 @@
         }
       }
     },
-    "Employees": {
+    "employees": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::employee.employee",
@@ -59,7 +59,7 @@
         }
       }
     },
-    "Address": {
+    "address": {
       "type": "component",
       "component": "studio.address",
       "repeatable": false,
@@ -69,7 +69,7 @@
         }
       }
     },
-    "StudioOpeningHours": {
+    "studioOpeningHours": {
       "type": "component",
       "component": "studio.opening-hours",
       "repeatable": false,
@@ -79,7 +79,7 @@
         }
       }
     },
-    "CustomerSupportOpeningHours": {
+    "customerSupportOpeningHours": {
       "type": "component",
       "component": "studio.opening-hours",
       "repeatable": false,
@@ -89,7 +89,7 @@
         }
       }
     },
-    "Order": {
+    "order": {
       "type": "integer",
       "pluginOptions": {
         "i18n": {

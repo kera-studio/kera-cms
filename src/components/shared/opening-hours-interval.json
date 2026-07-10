@@ -7,11 +7,11 @@
   },
   "options": {},
   "attributes": {
-    "StartHour": {
+    "startHour": {
       "type": "time",
       "required": true
     },
-    "EndHour": {
+    "endHour": {
       "type": "time",
       "required": true
     }

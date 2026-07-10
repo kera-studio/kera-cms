@@ -7,11 +7,11 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Answer": {
+    "answer": {
       "type": "blocks",
       "required": true
     }

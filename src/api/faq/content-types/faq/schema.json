@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -25,17 +25,17 @@
       },
       "required": true
     },
-    "Identifier": {
+    "identifier": {
       "type": "uid",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "targetField": "Title",
+      "targetField": "title",
       "required": true
     },
-    "Faqs": {
+    "faqs": {
       "type": "component",
       "component": "content.faq-item",
       "repeatable": true,

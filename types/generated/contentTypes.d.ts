@@ -957,7 +957,7 @@ export interface ApiDocumentationDocumentation
     };
   };
   attributes: {
-    Children: Schema.Attribute.Relation<
+    children: Schema.Attribute.Relation<
       'oneToMany',
       'api::documentation.documentation'
     > &
@@ -966,7 +966,7 @@ export interface ApiDocumentationDocumentation
           localized: false;
         };
       }>;
-    Content: Schema.Attribute.DynamicZone<
+    content: Schema.Attribute.DynamicZone<
       ['content.richtext', 'content.media-row', 'content.video']
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -982,7 +982,7 @@ export interface ApiDocumentationDocumentation
       'oneToMany',
       'api::documentation.documentation'
     >;
-    ParentDocumentation: Schema.Attribute.Relation<
+    parentDocumentation: Schema.Attribute.Relation<
       'manyToOne',
       'api::documentation.documentation'
     > &
@@ -999,14 +999,14 @@ export interface ApiDocumentationDocumentation
       }> &
       Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
-    Slug: Schema.Attribute.UID<'Title'> &
+    slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Title: Schema.Attribute.String &
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1036,13 +1036,13 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Avatar: Schema.Attribute.Media<'images'> &
+    avatar: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
-    Bio: Schema.Attribute.Text &
+    bio: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1051,13 +1051,13 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Email: Schema.Attribute.String &
+    email: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
-    Lessons: Schema.Attribute.String &
+    lessons: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1068,27 +1068,27 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::employee.employee'
     >;
-    Name: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
-    Phone: Schema.Attribute.String &
+    phone: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    Role: Schema.Attribute.String &
+    role: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Surname: Schema.Attribute.String &
+    surname: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1238,13 +1238,13 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Faqs: Schema.Attribute.Component<'content.faq-item', true> &
+    faqs: Schema.Attribute.Component<'content.faq-item', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Identifier: Schema.Attribute.UID<'Title'> &
+    identifier: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1254,7 +1254,7 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
     publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String &
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1971,7 +1971,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Content: Schema.Attribute.DynamicZone<
+    content: Schema.Attribute.DynamicZone<
       ['content.richtext', 'content.media-row', 'content.video']
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -1979,7 +1979,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    Cover: Schema.Attribute.Media<'images'> &
+    cover: Schema.Attribute.Media<'images'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1989,7 +1989,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Text &
+    description: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -2002,7 +2002,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       'api::project.project'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    Quote: Schema.Attribute.Relation<
+    quote: Schema.Attribute.Relation<
       'oneToOne',
       'api::client-quote.client-quote'
     > &
@@ -2011,20 +2011,20 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    Slug: Schema.Attribute.UID<'Title'> &
+    slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Table: Schema.Attribute.Component<'shared.table-row', true> &
+    table: Schema.Attribute.Component<'shared.table-row', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Title: Schema.Attribute.String &
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -2134,7 +2134,7 @@ export interface ApiStudioStudio extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Address: Schema.Attribute.Component<'studio.address', false> &
+    address: Schema.Attribute.Component<'studio.address', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -2152,7 +2152,7 @@ export interface ApiStudioStudio extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    CustomerSupportOpeningHours: Schema.Attribute.Component<
+    customerSupportOpeningHours: Schema.Attribute.Component<
       'studio.opening-hours',
       false
     > &
@@ -2161,7 +2161,7 @@ export interface ApiStudioStudio extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    Employees: Schema.Attribute.Relation<
+    employees: Schema.Attribute.Relation<
       'oneToMany',
       'api::employee.employee'
     > &
@@ -2170,7 +2170,7 @@ export interface ApiStudioStudio extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
-    Leader: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'> &
+    leader: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -2178,14 +2178,14 @@ export interface ApiStudioStudio extends Struct.CollectionTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::studio.studio'>;
-    Order: Schema.Attribute.Integer &
+    order: Schema.Attribute.Integer &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    StudioOpeningHours: Schema.Attribute.Component<
+    studioOpeningHours: Schema.Attribute.Component<
       'studio.opening-hours',
       false
     > &

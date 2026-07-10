@@ -5,7 +5,7 @@
     "singularName": "documentation",
     "pluralName": "documentations",
     "displayName": "Documentation",
-    "description": "Nested documentation article. Self-referential tree via ParentDocumentation."
+    "description": "Nested documentation article. Self-referential tree via parentDocumentation."
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -25,17 +25,17 @@
       },
       "required": true
     },
-    "Slug": {
+    "slug": {
       "type": "uid",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "targetField": "Title",
+      "targetField": "title",
       "required": true
     },
-    "ParentDocumentation": {
+    "parentDocumentation": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::documentation.documentation",
@@ -44,9 +44,9 @@
           "localized": false
         }
       },
-      "inversedBy": "Children"
+      "inversedBy": "children"
     },
-    "Children": {
+    "children": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::documentation.documentation",
@@ -55,9 +55,9 @@
           "localized": false
         }
       },
-      "mappedBy": "ParentDocumentation"
+      "mappedBy": "parentDocumentation"
     },
-    "Content": {
+    "content": {
       "type": "dynamiczone",
       "pluginOptions": {
         "i18n": {

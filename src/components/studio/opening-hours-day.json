@@ -7,13 +7,13 @@
   },
   "options": {},
   "attributes": {
-    "Day": {
+    "day": {
       "type": "integer",
       "required": true,
       "min": 0,
       "max": 6
     },
-    "Times": {
+    "times": {
       "type": "component",
       "component": "shared.opening-hours-interval",
       "repeatable": true
