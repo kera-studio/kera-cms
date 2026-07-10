@@ -1,7 +1,7 @@
 /**
  * workshop-activity lifecycles
  *
- * Auto-generates `slug` from title + studio slug. The `uid` field can only
+ * Auto-generates `slug` from title + studio branch. The `uid` field can only
  * target a single attribute, so the combined slug is built here instead.
  */
 
@@ -54,10 +54,10 @@ async function setComputedFields(event) {
 
   const studio = await strapi.db
     .query('api::studio.studio')
-    .findOne({ where: { id: studioId }, select: ['slug'] });
-  const studioSlug = studio?.slug;
+    .findOne({ where: { id: studioId }, select: ['branch'] });
+  const branch = studio?.branch;
 
-  if (title && studioSlug) data.slug = `${slugify(title)}-${studioSlug}`;
+  if (title && branch) data.slug = `${slugify(title)}-${branch}`;
 }
 
 export default {
