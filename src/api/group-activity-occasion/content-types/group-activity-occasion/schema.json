@@ -1,11 +1,11 @@
 {
   "kind": "collectionType",
-  "collectionName": "group_activities",
+  "collectionName": "group_activity_occasions",
   "info": {
-    "singularName": "group-activity",
-    "pluralName": "group-activities",
-    "displayName": "Activity – Group",
-    "description": "An activity made up of multiple group lessons."
+    "singularName": "group-activity-occasion",
+    "pluralName": "group-activity-occasions",
+    "displayName": "Activity – Group – Occasion",
+    "description": "An occasion (birthday, bachelorette…) bundling multiple group activities."
   },
   "options": {
     "draftAndPublish": true
@@ -32,38 +32,33 @@
           "localized": true
         }
       },
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
-    "base": {
+    "perex": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "price": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
-      "component": "activity.base",
+      "component": "shared.price",
       "repeatable": false,
       "required": true
     },
-    "content": {
-      "type": "dynamiczone",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "components": [
-        "content.richtext",
-        "content.media-row",
-        "content.video",
-        "content.premade-products"
-      ]
-    },
-    "occasions": {
+    "groupActivities": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::group-activity-occasion.group-activity-occasion",
-      "mappedBy": "groupActivities",
+      "target": "api::group-activity.group-activity",
+      "inversedBy": "occasions",
       "pluginOptions": {
         "i18n": {
           "localized": false

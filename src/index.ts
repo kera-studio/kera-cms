@@ -41,6 +41,14 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     slug: "URL slug",
     base: "Activity details",
     content: "Page content",
+    occasions: "Occasions",
+  },
+  "api::group-activity-occasion.group-activity-occasion": {
+    title: "Title",
+    slug: "URL slug",
+    perex: "Perex",
+    price: "Price",
+    groupActivities: "Group activities",
   },
   "api::workshop-activity.workshop-activity": {
     title: "Title",
@@ -206,6 +214,8 @@ const MAIN_FIELDS: Record<string, string> = {
   // Tag and author relation pickers show the title/name, not the documentId.
   "api::magazine-tag.magazine-tag": "title",
   "api::magazine.magazine": "title",
+  // Occasion relation pickers show the title, not the documentId.
+  "api::group-activity-occasion.group-activity-occasion": "title",
 };
 
 /**
@@ -237,6 +247,10 @@ const RELATION_MAIN_FIELDS: Record<string, Record<string, string>> = {
   },
   "api::project.project": { Quote: "name" },
   "api::magazine.magazine": { author: "team_member_name", tags: "title" },
+  "api::group-activity-occasion.group-activity-occasion": {
+    groupActivities: "title",
+  },
+  "api::group-activity.group-activity": { occasions: "title" },
 };
 
 /**
