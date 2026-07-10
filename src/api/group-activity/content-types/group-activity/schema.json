@@ -59,6 +59,22 @@
         "content.premade-products"
       ]
     },
+    "branches": {
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "options": [
+        "brno-stankova",
+        "praha-veletrzni",
+        "kera-mini",
+        "custom"
+      ],
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "occasions": {
       "type": "relation",
       "relation": "manyToMany",

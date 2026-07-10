@@ -1396,6 +1396,17 @@ export interface ApiGroupActivityGroupActivity
           localized: true;
         };
       }>;
+    branches: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['brno-stankova', 'praha-veletrzni', 'kera-mini', 'custom']
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     content: Schema.Attribute.DynamicZone<
       [
         'content.richtext',

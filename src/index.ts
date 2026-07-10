@@ -41,6 +41,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     slug: "URL slug",
     base: "Activity details",
     content: "Page content",
+    branches: "Restrict workshop to places",
     occasions: "Occasions",
   },
   "api::group-activity-occasion.group-activity-occasion": {
