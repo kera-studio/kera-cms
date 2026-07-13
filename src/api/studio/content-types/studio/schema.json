@@ -97,6 +97,16 @@
         }
       }
     },
+    "uniqueSellingPoints": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::unique-selling-point.unique-selling-point",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "order": {
       "type": "integer",
       "pluginOptions": {

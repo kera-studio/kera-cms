@@ -2207,6 +2207,15 @@ export interface ApiStudioStudio extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    uniqueSellingPoints: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::unique-selling-point.unique-selling-point'
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

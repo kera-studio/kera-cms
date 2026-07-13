@@ -77,6 +77,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     address: "Address",
     studioOpeningHours: "Studio opening hours",
     customerSupportOpeningHours: "Customer support hours",
+    uniqueSellingPoints: "Unique selling points",
     order: "Sort order",
   },
   "api::venue.venue": {
@@ -227,6 +228,8 @@ const MAIN_FIELDS: Record<string, string> = {
   "api::magazine.magazine": "title",
   // Occasion relation pickers show the title, not the documentId.
   "api::group-activity-occasion.group-activity-occasion": "title",
+  // USP relation pickers show the claim text, not the documentId.
+  "api::unique-selling-point.unique-selling-point": "claim",
 };
 
 /**
@@ -262,6 +265,7 @@ const RELATION_MAIN_FIELDS: Record<string, Record<string, string>> = {
     groupActivities: "title",
   },
   "api::group-activity.group-activity": { occasions: "title" },
+  "api::studio.studio": { uniqueSellingPoints: "claim" },
 };
 
 /**
@@ -299,7 +303,10 @@ const FIELD_DESCRIPTIONS: Record<string, Record<string, string>> = {
  * appended to the end of the stored layout, regardless of schema order.
  */
 const FIELD_AFTER: Record<string, Record<string, string>> = {
-  "api::studio.studio": { subtitle: "title" },
+  "api::studio.studio": {
+    subtitle: "title",
+    uniqueSellingPoints: "customerSupportOpeningHours",
+  },
   "api::venue.venue": { subtitle: "title" },
 };
 
