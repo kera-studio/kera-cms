@@ -1337,7 +1337,7 @@ export interface ApiGroupActivityOccasionGroupActivityOccasion
       'oneToMany',
       'api::group-activity-occasion.group-activity-occasion'
     >;
-    perex: Schema.Attribute.Blocks &
+    perex: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
