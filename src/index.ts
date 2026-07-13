@@ -293,6 +293,16 @@ const FIELD_DESCRIPTIONS: Record<string, Record<string, string>> = {
   },
 };
 
+/**
+ * Edit-form row order overrides: place a field's row directly after another
+ * field's row. Needed because a field added to an existing content type is
+ * appended to the end of the stored layout, regardless of schema order.
+ */
+const FIELD_AFTER: Record<string, Record<string, string>> = {
+  "api::studio.studio": { subtitle: "title" },
+  "api::venue.venue": { subtitle: "title" },
+};
+
 /** Patch a Content-Manager configuration's metadata labels in place. */
 function applyLabels(config, labels: Record<string, string>): boolean {
   let changed = false;
@@ -365,6 +375,26 @@ function makeFullWidth(config): boolean {
   return true;
 }
 
+/** Move each field's row directly after its anchor field's row. */
+function applyFieldOrder(config, rules: Record<string, string>): boolean {
+  let changed = false;
+  const rows = config?.layouts?.edit;
+  if (!Array.isArray(rows)) return false;
+  for (const [field, after] of Object.entries(rules)) {
+    const from = rows.findIndex((r) => r.some((el) => el.name === field));
+    if (from === -1) continue;
+    const [row] = rows.splice(from, 1);
+    const anchor = rows.findIndex((r) => r.some((el) => el.name === after));
+    if (anchor === -1) {
+      rows.splice(from, 0, row);
+      continue;
+    }
+    rows.splice(anchor + 1, 0, row);
+    changed = true;
+  }
+  return changed;
+}
+
 async function seedAdminConfig(strapi) {
   const ctService = strapi.plugin("content-manager").service("content-types");
   for (const [uid, labels] of Object.entries(CONTENT_TYPE_LABELS)) {
@@ -381,6 +411,7 @@ async function seedAdminConfig(strapi) {
       applyMainField(config, MAIN_FIELDS[uid]),
       applyRelationMainFields(config, RELATION_MAIN_FIELDS[uid] ?? {}),
       makeFullWidth(config),
+      applyFieldOrder(config, FIELD_AFTER[uid] ?? {}),
     ].some(Boolean);
     if (changed) {
       await ctService.updateConfiguration(contentType, config);
