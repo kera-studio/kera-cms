@@ -70,6 +70,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
   },
   "api::studio.studio": {
     title: "Title",
+    subtitle: "Subtitle",
     branch: "Studio branch",
     leader: "Studio leader",
     employees: "Employees",
@@ -80,6 +81,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
   },
   "api::venue.venue": {
     title: "Title",
+    subtitle: "Subtitle",
     leader: "Venue leader",
     address: "Address",
     openingHours: "Opening hours",

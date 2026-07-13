@@ -25,6 +25,14 @@
         }
       }
     },
+    "subtitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "branch": {
       "type": "enumeration",
       "required": true,
