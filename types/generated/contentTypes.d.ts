@@ -943,7 +943,7 @@ export interface ApiDocumentationDocumentation
   extends Struct.CollectionTypeSchema {
   collectionName: 'documentations';
   info: {
-    description: 'Nested documentation article. Self-referential tree via ParentDocumentation.';
+    description: 'Nested documentation article. Self-referential tree via parentDocumentation.';
     displayName: 'Documentation';
     pluralName: 'documentations';
     singularName: 'documentation';
@@ -2360,6 +2360,75 @@ export interface ApiUniqueSellingPointUniqueSellingPoint
   };
 }
 
+export interface ApiVenueVenue extends Struct.CollectionTypeSchema {
+  collectionName: 'venues';
+  info: {
+    description: 'Physical venue location.';
+    displayName: 'Venues';
+    pluralName: 'venues';
+    singularName: 'venue';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address: Schema.Attribute.Component<'studio.address', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    customerSupportOpeningHours: Schema.Attribute.Component<
+      'studio.opening-hours',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    leader: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::venue.venue'>;
+    openingHours: Schema.Attribute.Component<'studio.opening-hours', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWorkshopActivityWorkshopActivity
   extends Struct.CollectionTypeSchema {
   collectionName: 'workshop_activities';
@@ -3075,6 +3144,7 @@ declare module '@strapi/strapi' {
       'api::studio.studio': ApiStudioStudio;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::unique-selling-point.unique-selling-point': ApiUniqueSellingPointUniqueSellingPoint;
+      'api::venue.venue': ApiVenueVenue;
       'api::workshop-activity.workshop-activity': ApiWorkshopActivityWorkshopActivity;
       'api::workshop.workshop': ApiWorkshopWorkshop;
       'plugin::content-releases.release': PluginContentReleasesRelease;

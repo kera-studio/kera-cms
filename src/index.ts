@@ -78,6 +78,14 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     customerSupportOpeningHours: "Customer support hours",
     order: "Sort order",
   },
+  "api::venue.venue": {
+    title: "Title",
+    leader: "Venue leader",
+    address: "Address",
+    openingHours: "Opening hours",
+    customerSupportOpeningHours: "Customer support hours",
+    order: "Sort order",
+  },
   // No custom labels — empty map still routes the type through the seed loop so
   // its edit form gets the full-width (one-field-per-row) layout.
   "api::employee.employee": {},
