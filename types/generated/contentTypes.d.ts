@@ -2444,6 +2444,12 @@ export interface ApiVenueVenue extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    type: Schema.Attribute.Enumeration<['eshop', 'b2b']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

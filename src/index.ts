@@ -83,6 +83,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
   "api::venue.venue": {
     title: "Title",
     subtitle: "Subtitle",
+    type: "Venue type",
     leader: "Venue leader",
     address: "Address",
     openingHours: "Opening hours",
@@ -307,7 +308,7 @@ const FIELD_AFTER: Record<string, Record<string, string>> = {
     subtitle: "title",
     uniqueSellingPoints: "customerSupportOpeningHours",
   },
-  "api::venue.venue": { subtitle: "title" },
+  "api::venue.venue": { subtitle: "title", type: "subtitle" },
 };
 
 /** Patch a Content-Manager configuration's metadata labels in place. */

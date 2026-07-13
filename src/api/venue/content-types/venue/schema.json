@@ -33,6 +33,18 @@
         }
       }
     },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "eshop",
+        "b2b"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "leader": {
       "type": "relation",
       "relation": "oneToOne",
