@@ -57,6 +57,14 @@
         }
       }
     },
+    "clientName": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "content": {
       "type": "dynamiczone",
       "pluginOptions": {

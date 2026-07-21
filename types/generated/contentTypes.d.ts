@@ -1971,6 +1971,12 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    clientName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     content: Schema.Attribute.DynamicZone<
       ['content.richtext', 'content.media-row', 'content.video']
     > &
