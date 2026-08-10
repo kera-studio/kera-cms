@@ -2381,6 +2381,40 @@ export interface ApiUniqueSellingPointUniqueSellingPoint
   };
 }
 
+export interface ApiUserFeedbackUserFeedback
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'user_feedbacks';
+  info: {
+    displayName: 'z_Read only \u2013 User Feedback';
+    pluralName: 'user-feedbacks';
+    singularName: 'user-feedback';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    area: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::user-feedback.user-feedback'
+    > &
+      Schema.Attribute.Private;
+    occurredAt: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    screenshot: Schema.Attribute.Media<'images'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface ApiVenueVenue extends Struct.CollectionTypeSchema {
   collectionName: 'venues';
   info: {
@@ -3177,6 +3211,7 @@ declare module '@strapi/strapi' {
       'api::studio.studio': ApiStudioStudio;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::unique-selling-point.unique-selling-point': ApiUniqueSellingPointUniqueSellingPoint;
+      'api::user-feedback.user-feedback': ApiUserFeedbackUserFeedback;
       'api::venue.venue': ApiVenueVenue;
       'api::workshop-activity.workshop-activity': ApiWorkshopActivityWorkshopActivity;
       'api::workshop.workshop': ApiWorkshopWorkshop;

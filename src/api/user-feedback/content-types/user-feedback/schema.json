@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_feedbacks",
+  "info": {
+    "singularName": "user-feedback",
+    "pluralName": "user-feedbacks",
+    "displayName": "z_Read only – User Feedback"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "area": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    },
+    "occurredAt": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "screenshot": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

@@ -131,6 +131,14 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     slug: "URL slug",
     magazines: "Magazine entries",
   },
+  "api::user-feedback.user-feedback": {
+    email: "Email",
+    area: "Area of the site",
+    url: "Page URL",
+    occurredAt: "Occurred at",
+    description: "Description",
+    screenshot: "Screenshot",
+  },
 };
 
 const COMPONENT_LABELS: Record<string, Record<string, string>> = {
@@ -231,6 +239,8 @@ const MAIN_FIELDS: Record<string, string> = {
   "api::group-activity-occasion.group-activity-occasion": "title",
   // USP relation pickers show the claim text, not the documentId.
   "api::unique-selling-point.unique-selling-point": "claim",
+  // Feedback entries are titled by the reporter's email.
+  "api::user-feedback.user-feedback": "email",
 };
 
 /**
