@@ -104,7 +104,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
   "api::faq.faq": {
     title: "Title",
     identifier: "ID",
-    faqs: "Questions",
+    groups: "Question groups",
   },
   "api::project.project": {
     title: "Title",
@@ -204,6 +204,10 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
     title: "Question",
     answer: "Answer",
   },
+  "content.faq-group": {
+    title: "Group title",
+    items: "Questions",
+  },
   "activity.base": {
     cover: "Cover image",
     description: "Short description",
@@ -253,6 +257,8 @@ const COMPONENT_MAIN_FIELDS: Record<string, string> = {
   "studio.opening-hours-day": "day",
   // Accordion header for each repeatable FAQ entry shows the question.
   "content.faq-item": "title",
+  // Accordion header for each repeatable FAQ group shows the group title.
+  "content.faq-group": "title",
 };
 
 /**

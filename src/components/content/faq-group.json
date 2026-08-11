@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_content_faq_groups",
+  "info": {
+    "displayName": "FAQ Group",
+    "icon": "layer",
+    "description": "A titled group of question/answer items."
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "component": "content.faq-item",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}

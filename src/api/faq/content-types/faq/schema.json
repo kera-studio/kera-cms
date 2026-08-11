@@ -5,7 +5,7 @@
     "singularName": "faq",
     "pluralName": "faqs",
     "displayName": "FAQ",
-    "description": "A reusable FAQ group: a title, URL slug, and a repeatable list of question/answer items."
+    "description": "A reusable FAQ: a title, URL slug, and a repeatable list of question groups, each holding question/answer items."
   },
   "options": {
     "draftAndPublish": true
@@ -35,9 +35,9 @@
       "targetField": "title",
       "required": true
     },
-    "faqs": {
+    "groups": {
       "type": "component",
-      "component": "content.faq-item",
+      "component": "content.faq-group",
       "repeatable": true,
       "pluginOptions": {
         "i18n": {

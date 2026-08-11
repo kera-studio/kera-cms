@@ -1221,7 +1221,7 @@ export interface ApiFaqWorkshopFaqWorkshop extends Struct.SingleTypeSchema {
 export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   collectionName: 'faqs';
   info: {
-    description: 'A reusable FAQ group: a title, URL slug, and a repeatable list of question/answer items.';
+    description: 'A reusable FAQ: a title, URL slug, and a repeatable list of question groups, each holding question/answer items.';
     displayName: 'FAQ';
     pluralName: 'faqs';
     singularName: 'faq';
@@ -1238,7 +1238,7 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    faqs: Schema.Attribute.Component<'content.faq-item', true> &
+    groups: Schema.Attribute.Component<'content.faq-group', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

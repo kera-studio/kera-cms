@@ -93,6 +93,20 @@ export interface BasicTable extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentFaqGroup extends Struct.ComponentSchema {
+  collectionName: 'components_content_faq_groups';
+  info: {
+    description: 'A titled group of question/answer items.';
+    displayName: 'FAQ Group';
+    icon: 'layer';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'content.faq-item', true> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ContentFaqItem extends Struct.ComponentSchema {
   collectionName: 'components_content_faq_items';
   info: {
@@ -305,6 +319,7 @@ declare module '@strapi/strapi' {
       'basic.faq-item': BasicFaqItem;
       'basic.image-row': BasicImageRow;
       'basic.table': BasicTable;
+      'content.faq-group': ContentFaqGroup;
       'content.faq-item': ContentFaqItem;
       'content.media-row': ContentMediaRow;
       'content.premade-products': ContentPremadeProducts;
