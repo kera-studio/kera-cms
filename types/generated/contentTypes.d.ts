@@ -450,7 +450,7 @@ export interface ApiAlertBarAlertBar extends Struct.CollectionTypeSchema {
     alert_bar_cover: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     alert_bar_expires_at: Schema.Attribute.DateTime &
@@ -843,7 +843,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     course_name: Schema.Attribute.String &
@@ -1323,7 +1323,7 @@ export interface ApiGroupActivityOccasionGroupActivityOccasion
     coverImage: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Schema.Attribute.DateTime;
@@ -1353,7 +1353,7 @@ export interface ApiGroupActivityOccasionGroupActivityOccasion
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
@@ -1794,7 +1794,7 @@ export interface ApiPlacePlace extends Struct.CollectionTypeSchema {
     place_cover: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     place_description: Schema.Attribute.Text &
@@ -1920,7 +1920,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     coverPhoto: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Schema.Attribute.DateTime;
@@ -1995,7 +1995,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Schema.Attribute.DateTime;
@@ -2372,7 +2372,7 @@ export interface ApiUniqueSellingPointUniqueSellingPoint
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -2635,7 +2635,7 @@ export interface ApiWorkshopWorkshop extends Struct.CollectionTypeSchema {
     workshop_cover: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     workshop_features: Schema.Attribute.Component<'basic.table', true> &
