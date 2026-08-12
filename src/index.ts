@@ -48,6 +48,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     title: "Title",
     slug: "URL slug",
     perex: "Perex",
+    coverImage: "Cover image",
     price: "Price",
     groupActivities: "Group activities",
   },

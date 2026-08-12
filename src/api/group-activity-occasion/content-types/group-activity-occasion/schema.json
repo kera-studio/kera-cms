@@ -35,6 +35,19 @@
       "targetField": "title",
       "required": true
     },
+    "coverImage": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "perex": {
       "type": "text",
       "pluginOptions": {
