@@ -2535,6 +2535,12 @@ export interface ApiWorkshopActivityWorkshopActivity
         };
       }> &
       Schema.Attribute.DefaultTo<'calendar'>;
+    clubspireName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     content: Schema.Attribute.DynamicZone<
       [
         'content.richtext',

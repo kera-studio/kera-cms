@@ -91,6 +91,14 @@
           "localized": false
         }
       }
+    },
+    "clubspireName": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }
