@@ -61,6 +61,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::employee.employee",
+      "mappedBy": "studio",
       "pluginOptions": {
         "i18n": {
           "localized": false

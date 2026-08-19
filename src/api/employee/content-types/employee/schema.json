@@ -85,6 +85,17 @@
           "localized": true
         }
       }
+    },
+    "studio": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::studio.studio",
+      "inversedBy": "employees",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }
