@@ -59,9 +59,9 @@
     },
     "employees": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::employee.employee",
-      "mappedBy": "studio",
+      "mappedBy": "studios",
       "pluginOptions": {
         "i18n": {
           "localized": false
