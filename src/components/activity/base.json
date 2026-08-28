@@ -27,8 +27,7 @@
     "price": {
       "type": "component",
       "component": "shared.price",
-      "repeatable": false,
-      "required": true
+      "repeatable": false
     },
     "additionalInfo": {
       "type": "component",
