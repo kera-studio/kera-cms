@@ -78,6 +78,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     employees: "Employees",
     address: "Address",
     studioOpeningHours: "Studio opening hours",
+    consultationsHours: "Consultations hours",
     customerSupportOpeningHours: "Customer support hours",
     uniqueSellingPoints: "Unique selling points",
     order: "Sort order",

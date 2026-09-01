@@ -88,6 +88,14 @@
         }
       }
     },
+    "consultationsHours": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "customerSupportOpeningHours": {
       "type": "component",
       "component": "studio.opening-hours",
