@@ -4,8 +4,8 @@
   "info": {
     "singularName": "workshop-activity",
     "pluralName": "workshop-activities",
-    "displayName": "Activity – Workshop",
-    "description": "A workshop activity scheduled on one or more dates."
+    "displayName": "Activity \u2013 Workshop",
+    "description": "A workshop activity bookable via calendar or inquiry."
   },
   "options": {
     "draftAndPublish": true
@@ -71,16 +71,6 @@
         "calendar",
         "inquiry"
       ]
-    },
-    "dates": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "shared.event-date",
-      "repeatable": true
     },
     "studio": {
       "type": "relation",

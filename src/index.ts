@@ -58,7 +58,6 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     base: "Activity details",
     content: "Page content",
     bookingMode: "Booking mode",
-    dates: "Scheduled dates",
     studio: "Studio",
     clubspireName: "ClubSpire name",
   },
@@ -163,10 +162,6 @@ const COMPONENT_LABELS: Record<string, Record<string, string>> = {
   },
   "shared.list-item": {
     value: "Text",
-  },
-  "shared.event-date": {
-    date: "Date & time",
-    label: "Label",
   },
   "content.richtext": {
     body: "Text",
