@@ -27,7 +27,8 @@
       "enum": [
         "brno-stankova",
         "praha-veletrzni",
-        "kera-mini"
+        "kera-mini",
+        "praha-sezimova"
       ]
     },
     "url": {
