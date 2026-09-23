@@ -68,6 +68,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     content: "Page content",
     withPremadeProducts: "Backed by premade products",
     studio: "Studio",
+    clubspireName: "ClubSpire name",
   },
   "api::studio.studio": {
     title: "Title",
@@ -310,6 +311,9 @@ const FIELD_DESCRIPTIONS: Record<string, Record<string, string>> = {
     bookingMode:
       'How visitors book this activity. "Calendar" shows the reservation calendar. "Inquiry" hides the calendar and shows a contact/CTA form instead.',
     clubspireName: "Used to couple ClubSpire activity with this workshop.",
+  },
+  "api::selfservice-activity.selfservice-activity": {
+    clubspireName: "Used to couple ClubSpire activity with this activity.",
   },
 };
 
