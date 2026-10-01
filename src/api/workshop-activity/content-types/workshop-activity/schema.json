@@ -89,6 +89,19 @@
           "localized": false
         }
       }
+    },
+    "forAge": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "enum": [
+        "age-3-5",
+        "age-6-9",
+        "age-10-14"
+      ]
     }
   }
 }

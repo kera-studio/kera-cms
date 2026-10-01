@@ -60,6 +60,7 @@ const CONTENT_TYPE_LABELS: Record<string, Record<string, string>> = {
     bookingMode: "Booking mode",
     studio: "Studio",
     clubspireName: "ClubSpire name",
+    forAge: "For age",
   },
   "api::selfservice-activity.selfservice-activity": {
     title: "Title",
